@@ -5,4 +5,4 @@ __This is my personal configuration for my Arch installation. Includes configura
 - [ ] ALL.
 
 # Contributors
-(@Tomás Vidal)[@tomividal99]
+- [Tomás Vidal](https://github.com/TomiVidal99)
