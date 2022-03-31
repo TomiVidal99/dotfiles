@@ -1,5 +1,11 @@
 " Description: Keymaps
 
+" when yanking directly copy all words
+set clipboard+=unnamedplus
+
+" Save file
+map <C-s> :w <CR>
+
 " Telescope rebinding
 map <A-f> :Telescope <CR>
 map <A-b> :Texplore <CR>
@@ -74,3 +80,5 @@ nmap <C-w><right> <C-w>>
 nmap <C-w><up> <C-w>+
 nmap <C-w><down> <C-w>-
 
+" Open a new terminal with the current path
+map <F8> :exec '!konsole '.shellescape('%:p')' & disown' <CR>
