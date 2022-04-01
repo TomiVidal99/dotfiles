@@ -77,5 +77,5 @@ do
   update_rate
   id=$(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}')
   current_window_name=$(xprop -id $id | awk '/_NET_WM_NAME/{$1=$2="";print}' | cut -d'"' -f2)
-  echo ",[{\"full_text\":\"${current_window_name}\" }, {\"full_text\":\"📦 ${rate}\" },${line#,\[}" || exit 1
+  echo ",[{\"full_text\":\"📦 ${rate}\" },${line#,\[}" || exit 1
 done)
