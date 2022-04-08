@@ -21,6 +21,9 @@ if has("nvim")
   Plug 'folke/lsp-colors.nvim'
   Plug 'L3MON4D3/LuaSnip'
 
+  " comments
+  Plug 'numToStr/Comment.nvim'
+
   " completion
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-buffer'
@@ -39,6 +42,10 @@ if has("nvim")
   Plug 'daeyun/vim-matlab', { 'do': function('DoRemote') }
 
   Plug 'andymass/vim-matchup'
+
+  " c and cpp
+  Plug 'p00f/clangd_extensions.nvim'
+
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
