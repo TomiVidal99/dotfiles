@@ -27,8 +27,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i
 font pango:Noto Mono 16 
 
 # Media key bindings.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -284,10 +284,9 @@ assign [class="Thunderbird"] $ws9
 bindsym $mod+ctrl+p exec $(sh ~/.utility/i3/connect_bluetooth.sh) # exec bluetooth find devices
 bindsym $mod+ctrl+b exec $(sh ~/.utility/i3/connect_headset.sh) # exec bluetooth find devices
 bindsym $mod+ctrl+q exec qutebrowser
-#bindsym $mod+ctrl+l exec $(wine .wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe)
+bindsym $mod+ctrl+l exec $(wine .wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe)
 bindsym $mod+ctrl+o exec octave --gui
 bindsym $mod+ctrl+c exec firefox
-bindsym $mod+ctrl+t exec brave --tor
 bindsym $mod+ctrl+x exec dolphin # changed from nautilus
 bindsym $mod+ctrl+s exec spotify
 bindsym $mod+ctrl+m exec clementine
@@ -301,6 +300,7 @@ bindsym $mod+ctrl+KP_Down exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/
 bindsym $mod+ctrl+KP_3 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Analisis de Sistemas y Señales")
 bindsym $mod+ctrl+KP_Next exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Analisis de Sistemas y Señales")
 bindsym $mod+ctrl+i exec --no-startup-id $(spectacle -r)
+bindsym $mod+Shift+p exec $(echo -n "" | xclip -selection clipboard )
 #bindsym $mod+ctrl+a exec $(arandr) # bind for launching arandr display controller
 #bindsym $mod+ctrl+p exec $(sh pseint.sh) # command to exec pseint
 #bindsym Mod1+r exec playerctl play-pause & notify-send --hint=int:transient:1 -t 600 --icon=media-playback-start --urgency=critical "Reproducir/Pausar" # play/pause music player
@@ -310,17 +310,17 @@ bindsym $mod+ctrl+i exec --no-startup-id $(spectacle -r)
 # Plasma compatibility improvements
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
-#for_window [class="yakuake"] floating enable
-#for_window [class="systemsettings"] floating enable
-#for_window [class="plasmashell"] floating enable;
-#for_window [class="Plasma"] floating enable; border none
-#for_window [title="plasma-desktop"] floating enable; border none
-#for_window [title="win7"] floating enable; border none
-#for_window [class="krunner"] floating enable; border none
-#for_window [class="Kmix"] floating enable; border none
-#for_window [class="Klipper"] floating enable; border none
-#for_window [class="Plasmoidviewer"] floating enable; border none
-#for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="yakuake"] floating enable
+for_window [class="systemsettings"] floating enable
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
 no_focus [class="plasmashell" window_type="notification"]
 
