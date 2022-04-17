@@ -1,6 +1,9 @@
 " Fundamentals "{{{
 " ---------------------------------------------------------------------
 
+" get current number of line
+set number!
+
 " init autocmd
 autocmd!
 " set script encoding
@@ -12,7 +15,7 @@ set nocompatible
 set relativenumber
 syntax enable
 set fileencodings=utf-8,sjis,euc-jp,latin
-set encoding=utf-8
+set encoding=UTF-8
 set title
 set autoindent
 set background=dark
@@ -21,11 +24,13 @@ set hlsearch
 set showcmd
 set cmdheight=1
 set laststatus=2
-set scrolloff=10
+set scrolloff=8
 set expandtab
 "let loaded_matchparen = 1
-set shell=fish
+set shell=zsh
 set backupskip=/tmp/*,/private/tmp/*
+set noswapfile
+set incsearch
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -102,7 +107,7 @@ au BufNewFile,BufRead *.flow set filetype=javascript
 " Fish
 au BufNewFile,BufRead *.fish set filetype=fish
 
-set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
+set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md,.m,.cpp,.c
 
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
@@ -125,6 +130,7 @@ if has('win32')
 endif
 
 runtime ./maps.vim
+runtime ./octave.rc.vim
 "}}}
 
 " Syntax theme "{{{
@@ -150,5 +156,3 @@ endif
 " ---------------------------------------------------------------------
 set exrc
 "}}}
-
-" vim: set foldmethod=marker foldlevel=0:

@@ -1,0 +1,1 @@
+/home/tomii/zsh/.zshrc

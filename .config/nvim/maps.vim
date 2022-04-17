@@ -1,5 +1,49 @@
 " Description: Keymaps
 
+" map leader
+let mapleader = " " " map leader to Space
+
+" copy from the cursor to the end of the line.
+nnoremap Y y$
+
+" alaways keep the cursor in the center when searching and using N and J to
+" bind strings
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ'z
+
+" only undo by break points, don't remove the entire line that you've written.
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+inoremap ( (<c-g>u
+inoremap ) )<c-g>u
+inoremap [ [<c-g>u
+inoremap ] ]<c-g>u
+
+" jumpt list mutations, basically add more points to jump when moving around.
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" replace highlighted text with prompted input hotkey
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <S-r> :s//gc<left><left><left>
+
+" move entire text up and down, by lines or by selection
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+nnoremap <leader>k :m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
+
+" when yanking directly copy all words
+set clipboard+=unnamedplus
+
+" Save file
+map <C-s> :w <CR>
+
 " Telescope rebinding
 map <A-f> :Telescope <CR>
 map <A-b> :Texplore <CR>
@@ -47,8 +91,8 @@ vnoremap <silent> # :<C-U>
 " Tabs
 
 " Open current directory
-nmap te :tabedit 
-nmap tt :tabnew 
+"nmap te :tabedit 
+"nmap tt :tabnew 
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
 
@@ -74,3 +118,5 @@ nmap <C-w><right> <C-w>>
 nmap <C-w><up> <C-w>+
 nmap <C-w><down> <C-w>-
 
+" Open a new terminal with the current path
+map <F8> :exec '!konsole '.shellescape('%:p')' & disown' <CR>
