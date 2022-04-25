@@ -246,9 +246,13 @@ for_window [class="Screenkey"] floating enable
 bar {
     tray_output $primary_monitor
     status_command exec /home/tomii/.utility/i3/bandwidth_script_i3.sh
-    separator_symbol " | "
+    #separator_symbol " | "
+    #separator_symbol "  "
+    #separator_symbol "  "
+    #separator_symbol "  "
+    separator_symbol " ⏽ "
     position top
-    font pango: Ligconsolata condensed SemiBold 14
+    font pango: NotoMono Nerd Font Mono 18, Ligconsolata condensed SemiBold 14
     colors {
       separator #ffffff
       background #000000
@@ -324,8 +328,10 @@ for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
 no_focus [class="plasmashell" window_type="notification"]
 
+# Integration with Plasma
 # Remove plasma background
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
+exec --no-startup-id wmctrl -c Plasma
+for_window [title="Escritorio — Plasma"] kill; floating enable; border none
 
 # Using plasma's logout screen instead of i3's
 #bindsym $mod+Shift+e exec --no-startup-id qdbus-qt5 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
@@ -340,3 +346,6 @@ exec --no-startup-id feh --bg-scale ~/Pictures/background.jpg
 
 # excute xcompmgr to render back shadow drop (enable transparency on terminal)
 exec xcompmgr -c &
+
+# Start tray icons
+exec_always --no-startup-id "~/.config/i3/tray.sh"
