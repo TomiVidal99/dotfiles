@@ -297,6 +297,7 @@ bindsym $mod+ctrl+m exec clementine
 bindsym $mod+ctrl+v exec $(sh ~/.utility/common/volume.sh)
 bindsym $mod+ctrl+0 exec $(sh ~/.utility/common/change_sink.sh)
 bindsym $mod+ctrl+9 exec $(sh ~/.utility/common/switch_sink.sh)
+bindsym $mod+ctrl+k exec $(sh ~/.utility/common/change_rgb_colors.sh)
 bindsym $mod+KP_1 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Electromagnetismo Aplicado")
 bindsym $mod+ctrl+KP_End exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Electromagnetismo Aplicado")
 bindsym $mod+ctrl+KP_1 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Dispositivos Electronicos")
@@ -331,7 +332,7 @@ no_focus [class="plasmashell" window_type="notification"]
 # Integration with Plasma
 # Remove plasma background
 exec --no-startup-id wmctrl -c Plasma
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
+for_window [title="Escritorio — Plasma"] kill; floating enable; border none
 
 # Using plasma's logout screen instead of i3's
 #bindsym $mod+Shift+e exec --no-startup-id qdbus-qt5 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
@@ -345,7 +346,7 @@ exec --no-startup-id sh /home/tomii/.startup.sh
 exec --no-startup-id feh --bg-scale ~/Pictures/background.jpg
 
 # excute xcompmgr to render back shadow drop (enable transparency on terminal)
-exec xcompmgr -c &
+exec_always --no-startup-id compton -c -I 1 -D 15 -O 1
 
 # Start tray icons
 exec_always --no-startup-id "~/.config/i3/tray.sh"
