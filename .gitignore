@@ -5,6 +5,10 @@
 !README.md
 !.gitignore
 
+# Don't ignore stow related files
+!install*
+!.stow*
+
 # won't ignore the following files
 # i3 config
 !i3/
@@ -12,6 +16,7 @@
 
 # neovim config
 !nvim/
+!.config/nvim/vimModeStateDiagram.svg
 
 # shell utility scripts
 !.utility/
@@ -19,3 +24,9 @@
 # octave config
 !.octave/
 !.octaverc
+
+# zsh oh-my-zsh with powerlevel10k
+!.zshrc
+!.config/.zsh/
+!.config/.zsh/.aliases
+!.config/.zsh/.shortcuts
