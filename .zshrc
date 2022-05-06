@@ -8,7 +8,9 @@
 export PATH=$PATH:/home/tomii/.local/share/gem/ruby/3.0.0/bin
 export PATH=$PATH:/home/tomii/programming/cpp/mLangLSP/bin/
 
-## Options section
+export LANG=es_AR.UTF-8
+export LC_ALL=es_AR.UTF-8
+
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                                               # Case insensitive globbing
