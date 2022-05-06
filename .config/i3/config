@@ -332,7 +332,7 @@ no_focus [class="plasmashell" window_type="notification"]
 # Integration with Plasma
 # Remove plasma background
 exec --no-startup-id wmctrl -c Plasma
-for_window [title="Deskop — Plasma"] kill; floating enable; border none
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 # Using plasma's logout screen instead of i3's
 #bindsym $mod+Shift+e exec --no-startup-id qdbus-qt5 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
