@@ -179,7 +179,7 @@ bindsym $alt+Shift+4 move container to workspace number 14
 bindsym $alt+Shift+5 move container to workspace number 15
 bindsym $alt+Shift+6 move container to workspace number 16
 bindsym $alt+Shift+7 move container to workspace number 17
-bindsym $alt+Shift+8 move container to workspace number 18
+bindsym $alt+Shift+8 move cntainer to workspace number 18
 bindsym $alt+Shift+9 move container to workspace number 19
 bindsym $alt+Shift+0 move container to workspace number 20
 
@@ -316,10 +316,10 @@ bindsym $mod+Shift+p exec $(echo -n "" | xclip -selection clipboard )
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="yakuake"] floating enable
-#for_window [class="systemsettings"] floating enable
-#for_window [class="plasmashell"] floating enable;
-#for_window [class="Plasma"] floating enable; border none
-#for_window [title="plasma-desktop"] floating enable; border none
+for_window [class="systemsettings"] floating enable
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
 for_window [title="win7"] floating enable; border none
 for_window [class="krunner"] floating enable; border none
 for_window [class="Kmix"] floating enable; border none
@@ -340,7 +340,7 @@ for_window [title="Desktop — Plasma"] kill; floating enable; border none
 # -- Startup programs -- #
 
 # start mail
-exec --no-startup-id sh /home/tomii/.startup.sh
+#exec --no-startup-id sh /home/tomii/.startup.sh
 
 # Set the wallpaper
 exec --no-startup-id feh --bg-scale ~/Pictures/background.jpg
