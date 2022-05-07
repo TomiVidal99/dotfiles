@@ -30,3 +30,7 @@
 !.config/.zsh/
 !.config/.zsh/.aliases
 !.config/.zsh/.shortcuts
+
+# colorls configs
+!.colorls
+!.config/colorls
