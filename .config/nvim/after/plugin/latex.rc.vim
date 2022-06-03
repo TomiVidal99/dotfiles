@@ -1,3 +1,7 @@
+"DEPENDENCIES:
+" texlive-most, texlab.
+" run plugInstall afterwards.
+
 " shortcut to run the live preview with the compiler.
 autocmd FileType tex map <F4> <cmd>LLPStartPreview <CR>
 
