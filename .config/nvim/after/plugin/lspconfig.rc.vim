@@ -3,6 +3,12 @@ if !exists('g:lspconfig')
 endif
 
 lua << EOF
+
+-- Automatically install lsp server.
+require("nvim-lsp-installer").setup {
+  automatic_installation = true
+}
+
 local nvim_lsp = require('lspconfig')
 local protocol = require'vim.lsp.protocol'
 
@@ -32,10 +38,10 @@ local on_attach = function(client, bufnr)
   --buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   --buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.diagnostic.open.float()<CR>', opts)
-  --buf_set_keymap('n', '<C-j>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  --buf_set_keymap('n', '<S-C-j>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<C-j>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', '<S-C-j>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  buf_set_keymap('n', "<space>F", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
   -- formatting
   if client.name == 'tsserver' then
@@ -90,21 +96,23 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
 --  capabilities = capabilities
 --}
 
+-- Initialize Typescript server provider.
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   capabilities = capabilities
 }
 
+-- Initialize C and C++ server provider.
 nvim_lsp.clangd.setup {
   on_attach = on_attach,
   filetypes = { "cpp", "c", "h" },
   capabilities = capabilities,
 }
 
+-- Initialize Latex server provider.
 nvim_lsp.texlab.setup {
   on_attach = on_attach,
-  filetypes = { "tex" },
   capabilities = capabilities,
 }
 
@@ -114,6 +122,7 @@ nvim_lsp.texlab.setup {
 --  capabilities = capabilities,
 --}
 
+-- Initialize Diagnose for front end development server provider.
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
   filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'pandoc' },
