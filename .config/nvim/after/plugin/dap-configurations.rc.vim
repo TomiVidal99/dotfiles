@@ -47,4 +47,7 @@ dap.configurations.cpp = {
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
 
+-- for python
+require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
+
 EOF

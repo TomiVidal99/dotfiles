@@ -76,6 +76,9 @@ if has("nvim")
   " Grammar check
   Plug 'rhysd/vim-grammarous'
 
+  "Python
+  Plug 'mfussenegger/nvim-dap-python'
+
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
