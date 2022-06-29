@@ -96,6 +96,13 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
 --  capabilities = capabilities
 --}
 
+-- Initialize Python server provider.
+nvim_lsp.pylsp.setup {
+  on_attach = on_attach,
+  filetypes = { "python" },
+  capabilities = capabilities
+}
+
 -- Initialize Typescript server provider.
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
