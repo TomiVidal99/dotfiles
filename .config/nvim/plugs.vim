@@ -2,6 +2,9 @@ if has("nvim")
   let g:plug_home = stdpath('data') . '/plugged'
 endif
 
+" Update plugins if this file changes.
+autocmd BufWritePost plugs.vim source <afile> | PlugInstall
+
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
