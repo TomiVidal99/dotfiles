@@ -72,12 +72,11 @@ if has("nvim")
   Plug 'mfussenegger/nvim-dap'
   Plug 'rcarriga/nvim-dap-ui'
   Plug 'nvim-telescope/telescope-dap.nvim'
+  Plug 'mfussenegger/nvim-dap-python'
+  Plug 'theHamsta/nvim-dap-virtual-text'
 
   " Grammar check
   Plug 'rhysd/vim-grammarous'
-
-  "Python
-  Plug 'mfussenegger/nvim-dap-python'
 
 endif
 
