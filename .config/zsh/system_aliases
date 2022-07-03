@@ -1,6 +1,0 @@
-## Aliases specific to Linux/Arch - LAPTOP
-
-alias cwp='cd ~/Documents/asys_tpn1/' # Working Project directory.
-
-# some recurrent icons
-alias piicon=''

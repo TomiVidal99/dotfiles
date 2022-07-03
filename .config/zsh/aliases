@@ -1,20 +1,25 @@
-## Alias section 
-alias cp="cp -i"                                                # Confirm before overwriting something
-alias CP="cp"                                                # Dont confirm before overwriting something
-alias df='df -h'                                                # Human-readable sizes
-alias free='free -m'                                            # Show sizes in MB
-alias gitu='git add . && git commit && git push'
-alias add='git add .'
-alias com='git commit -m'
-alias status='git status'
-alias push='git push'
-alias pull='git pull'
-alias ls="colorls"                                                # Better formBetter formatted ls
-alias ll="colorls -l"
-alias grep='grep --colour=auto'                                   # Get colored outputs
-alias egrep='egrep --colour=auto'
-alias fgrep='fgrep --colour=auto'
-alias o='octave --traditional'
-alias n="nvim ."
-alias cwp="cd ~/programming/typescript/mLangLSP/"
-alias ddf="cd ~/.dotfiles/"
+#!/bin/sh
+
+# Colorize grep output (good for log files)
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
+# easier to read disk
+alias df='df -h'     # human-readable sizes
+alias free='free -m' # show sizes in MB
+
+# git
+alias gcom='git commit -m '
+alias gpush='git push'
+alias gpull='git pull'
+alias gaddall='git add .'
+alias gstatus='git status'
+alias gcheckout='git checkout '
+alias gbranch='git branch'
+alias gdiff='git diff'
