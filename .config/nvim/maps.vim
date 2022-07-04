@@ -44,10 +44,6 @@ set clipboard+=unnamedplus
 " Save file
 map <C-s> :w <CR>
 
-" Telescope rebinding
-map <A-f> :Telescope <CR>
-map <A-b> :Texplore <CR>
-
 " Escape with Alt+a
 imap <A-a> <Esc>
 
@@ -133,8 +129,12 @@ function! OpenTerminalBottom()
   split term://zsh
   resize 10
 endfunction
+" maps for opening the terminal
 nnoremap <leader>tb <cmd> call OpenTerminalBottom() <CR>
 nnoremap <leader>tr <cmd> vsplit term://zsh <CR>
+" maps for switching to normal mode when a terminal is opened in a window
+" so i can navigate between the windows, even if one of them is a terminal.
+tnoremap <A-a> <C-\><C-n>
 
 " Quickfixlist
 nmap <leader>qo <cmd>copen<cr>
