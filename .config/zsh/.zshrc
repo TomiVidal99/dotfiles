@@ -13,6 +13,11 @@
 # save commands used.
 HISTFILE=~/.cache/zsh_history
 
+# locale variable needed for colorls and some other software.
+export LANG=es_AR.UTF-8
+export LANGUAGE=es_AR.UTF-8
+export LC_ALL=es_AR.UTF-8
+
 # Load the other files, some options need to be executed before some plugins.
 source "$ZDOTDIR/functions"
 zsh_add_file "options"
