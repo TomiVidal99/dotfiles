@@ -3,6 +3,9 @@
 lldb-vscode
 vim-latexsuite
 latexmk
+bumblebee-status
+tk
+blueman (i think bluez)
 
 -- To install python debugger:
 python -m venv /home/tomii/.virtualenvs/debugpy
