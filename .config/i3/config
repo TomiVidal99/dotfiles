@@ -24,7 +24,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i
 
 # FONT
 #font pango:DejaVu Sans Mono 8
-font pango:Noto Mono 16 
+font pango: Ligconsolata condensed SemiBold 13, NotoMono Nerd Font Mono 13
 
 # Media key bindings.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
@@ -250,7 +250,7 @@ bar {
 
     # Run the bumblebee-status
     status_command bumblebee-status \
-        -m spotify bluetooth traffic arch-update pasink weather datetime date \
+        -m spotify redshift bluetooth traffic arch-update pasink weather datetime date \
         -p datetime.format="%-H:%-M:%-S" \
            date.format="%A, %-d/%-m/%-Y" \
            traffic.showname=False \
