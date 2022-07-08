@@ -1,9 +1,9 @@
 #!/bin/bash
 
-pkill -f pasystray
+#pkill -f pasystray
 #pkill -f blueman-tray
-pkill -f nm-applet
+#pkill -f nm-applet
 
-pasystray --notify=all & disown
+#pasystray --notify=all & disown
 #blueman-tray & disown
-nm-applet --indicator & disown
+#nm-applet --indicator & disown
