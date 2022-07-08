@@ -250,7 +250,7 @@ bar {
 
     # Run the bumblebee-status
     status_command bumblebee-status \
-        -m spotify bluetooth traffic arch-update pasink weather datetime date \
+        -m spotify traffic arch-update pasink weather datetime date \
         -p datetime.format="%H:%M:%S" \
            date.format="%A, %-d/%-m/%-Y" \
            traffic.showname=False \
@@ -310,7 +310,7 @@ assign [class="Thunderbird"] $ws9
 # custom keybindings!
 bindsym $mod+ctrl+p exec $(sh ~/.utility/i3/connect_bluetooth.sh) # exec bluetooth find devices
 bindsym $mod+ctrl+b exec $(sh ~/.utility/i3/connect_headset.sh) # exec bluetooth find devices
-bindsym $mod+Shift+ctrl+b exec $(sh ~/.utility/i3/connect_headset.sh) # exec bluetooth find devices
+bindsym $mod+ctrl+z exec $(sh ~/.utility/i3/connect_headset.sh) # exec bluetooth find devices
 bindsym $mod+ctrl+q exec qutebrowser
 bindsym $mod+ctrl+l exec $(wine .wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe)
 bindsym $mod+ctrl+o exec octave --gui
