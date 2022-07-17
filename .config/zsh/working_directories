@@ -1,2 +1,3 @@
-PYTHON_PROJECTS=/home/tomii/programming/python
-dotfiles_desktop=/home/tomii/temp/dotfiles_desktop
+python projects=/home/tomii/programming/python
+lsp_mlang=/home/tomii/programming/lsp_mlang
+TP2 AnSyS=/mnt/DATOS/Documentos/Analisis de Sistemas y Señales/TPU 2
