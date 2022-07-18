@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# TODO: change the current system to execute scripts 
+# in a certain order to name them with a number that 
+# specifies that order, ie: 1.variables.global
+
 # This will generate the i3/config file
 # The gold it's to modulerize the config and 
 # provide different configs dependent of the system (desktop and laptop).

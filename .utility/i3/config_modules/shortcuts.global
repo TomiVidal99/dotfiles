@@ -22,8 +22,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Bindings for the windows
-#bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec dmenu_run -i -p 'EXECUTE' -fn 'Ligconsolata condensed:semibold:pixelsize=18' -nb '#000000' -nf '#ffffff' -sf '#d0d0d0' -sb '#2f2f2f'
+bindsym $mod+e exec $(sh ~/.utility/i2/execute_rofi.sh)
+#bindsym $mod+d exec dmenu_run -i -p 'EXECUTE' -fn 'Ligconsolata condensed:semibold:pixelsize=18' -nb '#000000' -nf '#ffffff' -sf '#d0d0d0' -sb '#2f2f2f'
 bindsym $mod+Shift+q kill
 
 # Switch windows with cursor keys ...
@@ -48,9 +48,10 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Tab layout toggle tabbed split
+#bindsym $mod+s layout stacking
+#bindsym $mod+t layout tabbed
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -59,7 +60,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
