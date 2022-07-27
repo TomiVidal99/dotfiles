@@ -320,7 +320,7 @@ bar {
 
     # Run the bumblebee-status
     status_command bumblebee-status \
-        -m traffic arch-update pasink weather datetime date \
+        -m traffic arch-update pasink weather battery datetime date \
         -p interval=5s \
            datetime.format="%H:%M" \
            date.format="%A, %-d/%-m/%-Y" \
@@ -346,10 +346,12 @@ bar {
 # - - - - - - - - - - - - - - - - - - - - 
 
 # - - - - - - - - - - shortcuts (laptop) - - - - - - - - - - 
+# Custom shortcuts to most used apps
+bindsym $mod+Shift+f exec firefox
+
 # Custom shortcuts to apps
 bindsym $mod+a mode "$apps_mode"
 mode "$apps_mode" {
-    bindsym f exec firefox
     bindsym t exec thunderbird
     bindsym l exec $(wine .wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe)
     bindsym d exec dolphin # changed from nautilus
