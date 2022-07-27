@@ -25,7 +25,7 @@ configuration {
   green:            #33bd91;
   red:              #ff6666;
 
-  primary-dark:     #142129;
+  primary-dark:     #14212960;
   primary-light:    #586e75;
 
   dark1:            #00000033;
