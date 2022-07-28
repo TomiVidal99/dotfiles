@@ -320,7 +320,7 @@ bar {
 
     # Run the bumblebee-status
     status_command bumblebee-status \
-        -m traffic arch-update pasink weather battery datetime date \
+        -m traffic arch-update pasink weather datetime date \
         -p interval=5s \
            datetime.format="%H:%M" \
            date.format="%A, %-d/%-m/%-Y" \
