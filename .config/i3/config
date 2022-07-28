@@ -346,10 +346,12 @@ bar {
 # - - - - - - - - - - - - - - - - - - - - 
 
 # - - - - - - - - - - shortcuts (laptop) - - - - - - - - - - 
+# Custom shortcuts to most used apps
+bindsym $mod+Shift+f exec firefox
+
 # Custom shortcuts to apps
 bindsym $mod+a mode "$apps_mode"
 mode "$apps_mode" {
-    bindsym f exec firefox
     bindsym t exec thunderbird
     bindsym l exec $(wine .wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe)
     bindsym d exec dolphin # changed from nautilus
