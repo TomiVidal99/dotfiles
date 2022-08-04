@@ -97,6 +97,7 @@ function remove_from_working_directory() {
 
 # git add all, commit with a given argument and push changes
 function git_add_commit_push() {
+  # TODO: check if this is a repo
   if [ "${1}" ]; then
     git add .
     git status

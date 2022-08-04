@@ -86,11 +86,10 @@ vnoremap <silent> # :<C-U>
 "-----------------------------
 " Tabs
 
-" Open current directory
 nmap te :tabedit 
 nmap tt :tabnew 
-nmap <S-Tab> :tabprev<Return>
-nmap <Tab> :tabnext<Return>
+nmap <C-h> :tabprev<Return>
+nmap <C-l> :tabnext<Return>
 
 "------------------------------
 " Windows
@@ -121,6 +120,7 @@ map <F2> <cmd> map <CR>
 
 " Open a new terminal with the current path
 map <F12> <cmd> exec '!konsole '.shellescape('%:p')' & disown' <CR>
+tnoremap <A-a> <C-\><C-n>
 
 " Terminals inside nvim.
 " start terminal in insert mode
@@ -129,12 +129,8 @@ function! OpenTerminalBottom()
   split term://zsh
   resize 10
 endfunction
-" maps for opening the terminal
 nnoremap <leader>tb <cmd> call OpenTerminalBottom() <CR>
 nnoremap <leader>tr <cmd> vsplit term://zsh <CR>
-" maps for switching to normal mode when a terminal is opened in a window
-" so i can navigate between the windows, even if one of them is a terminal.
-tnoremap <A-a> <C-\><C-n>
 
 " Quickfixlist
 nmap <leader>qo <cmd>copen<cr>
