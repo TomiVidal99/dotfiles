@@ -7,7 +7,7 @@ bar {
     # Run the bumblebee-status
     status_command bumblebee-status \
         -m traffic arch-update pasink weather battery datetime date \
-        -p interval=5s \
+        -p interval=1s \
            datetime.format="%H:%M" \
            date.format="%A, %-d/%-m/%-Y" \
            traffic.showname=False \
