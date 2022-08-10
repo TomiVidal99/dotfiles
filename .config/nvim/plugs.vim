@@ -88,7 +88,11 @@ if has("nvim")
   Plug 'tanvirtin/vgit.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
 
+  " Linting, TODO: check if i keep this
   Plug 'mfussenegger/nvim-lint'
+
+  " Arduino
+  Plug 'stevearc/vim-arduino'
 
 endif
 
