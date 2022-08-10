@@ -9,5 +9,8 @@ __This is my personal configuration for my Arch installation in my desktop. Incl
 - [ ] Add more plugs for octave.
 - [ ] Improve configPlot with a different fontsize for the title and another one for the axis.
 
+# Problems
+if the for some reason (i.e system update) the i3 it's replaced by kwin, do as says [here](https://maxnatt.gitlab.io/posts/kde-plasma-with-i3wm/)
+
 # Contributors
 - [Tomás Vidal](https://github.com/TomiVidal99)
