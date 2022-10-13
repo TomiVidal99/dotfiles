@@ -87,3 +87,4 @@ assign [class="Octave"] $ws7
 assign [class="discord"] $ws8
 # to workspace 9
 assign [class="Thunderbird"] $ws9
+assign [class="thunderbird"] $ws9
