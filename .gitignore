@@ -33,3 +33,6 @@
 !.zshrc
 plugins_dependencies
 plugins_dependencies/*
+
+# Startup programs
+!.startup.sh

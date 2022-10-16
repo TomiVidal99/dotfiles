@@ -353,6 +353,16 @@ bar {
 # Custom shortcuts to most used apps
 bindsym $mod+Shift+f exec firefox
 
+# Sound and Mediaplayer
+bindsym $mod+$alt+k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status 
+bindsym $mod+$alt+j exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym $mod+$alt+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym $mod+$alt+n exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym $mod+$alt+p exec playerctl play
+bindsym $mod+$alt+o exec playerctl pause
+bindsym $mod+$alt+l exec playerctl next
+bindsym $mod+$alt+h exec playerctl previous
+
 # Custom shortcuts to apps
 bindsym $mod+a mode "$apps_mode"
 mode "$apps_mode" {
