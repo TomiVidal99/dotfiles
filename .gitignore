@@ -36,3 +36,6 @@ plugins_dependencies/*
 
 # Startup programs
 !.startup.sh
+
+# Ignore i3 config, this is generated with a script
+.config/i3/config
