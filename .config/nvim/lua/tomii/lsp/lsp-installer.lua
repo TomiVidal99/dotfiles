@@ -48,3 +48,20 @@ lsp.sumneko_lua.setup({
   capabilities = capabilities,
   settings = require("tomii.lsp.settings.sumneko_lua"),
 })
+
+-- C#
+local pid = vim.fn.getpid()
+local omnisharp_executable = "C:\\ProgramData\\chocolatey\\lib\\omnisharp\\tools\\omnisharp"
+lsp.omnisharp.setup({
+  -- TODO: move all this config to a different directory
+  capabilities = capabilities,
+  on_attach = on_attach,
+  cmd = { omnisharp_executable, "--languageserver" , "--hostPID", tostring(pid) },
+  enable_editorconfig_support = true,
+  enable_ms_build_load_projects_on_demand = false,
+  enable_roslyn_analyzers = false,
+  organize_imports_on_format = false,
+  enable_import_completion = false,
+  sdk_include_prereleases = true,
+  analyze_open_documents_only = false,
+})

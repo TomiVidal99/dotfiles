@@ -12,6 +12,8 @@ bar {
            date.format="%A, %-d/%-m/%-Y" \
            traffic.showname=False \
            traffic.format='{:.2f}' \
+           weather.location='La Plata' \
+           weather.showminmax=True \
         -t solarized-powerline
         # some other themes that are very cool! ;)
         #-t nord-powerline

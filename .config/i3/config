@@ -102,7 +102,8 @@ assign [class="Octave"] $ws7
 # to workspace 8
 assign [class="discord"] $ws8
 # to workspace 9
-assign [class="Thunderbird"] $ws9
+assign [class="mail"] $ws9
+assign [class="thunderbird"] $ws9
 
 # to workspace 10
 assign [class="Steam"] $ws10
@@ -331,6 +332,8 @@ bar {
            date.format="%A, %-d/%-m/%-Y" \
            traffic.showname=False \
            traffic.format='{:.2f}' \
+           weather.location='La Plata' \
+           weather.showminmax=True \
         -t solarized-powerline
         # some other themes that are very cool! ;)
         #-t nord-powerline
