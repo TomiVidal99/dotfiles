@@ -35,4 +35,4 @@ mode "$scripts_mode" {
 }
 
 # Custom Paths
-bindsym $mod+d exec $(sh ~/.utility/i3/launch_directories.sh)
+bindsym $mod+Shift+d exec $(sh ~/.utility/i3/launch_directories.sh)
