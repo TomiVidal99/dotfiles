@@ -51,7 +51,7 @@ lsp.sumneko_lua.setup({
 
 -- C#
 local pid = vim.fn.getpid()
-local omnisharp_executable = "C:\\ProgramData\\chocolatey\\lib\\omnisharp\\tools\\omnisharp"
+local omnisharp_executable = "omnisharp"
 lsp.omnisharp.setup({
   -- TODO: move all this config to a different directory
   capabilities = capabilities,

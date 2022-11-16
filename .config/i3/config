@@ -96,7 +96,8 @@ for_window [class="Spotify"] move container to workspace number $ws5
 for_window [class="Clementine"] move container to workspace number $ws5
 # to workspace 6
 for_window [class="LTspice XVIII"] move container to workspace number $ws6
-for_window [class="quartus"] move container to workspace number $ws6
+assign [class="Quartus"] $ws6
+for_window [class="Quartus"] move container to workspace number $ws6
 # to workspace 7
 assign [class="Octave"] $ws7
 # to workspace 8
