@@ -9,6 +9,7 @@ __This is my personal configuration for my Arch installation in my desktop. Incl
 - [ ] Fix octave syntax highlight.
 - [ ] Add more plugs for octave.
 - [ ] Improve configPlot with a different fontsize for the title and another one for the axis.
+- [ ] Fix error with NERDTree groups (theme problem).
 
 ## Dependencies
 - arduino-cli
