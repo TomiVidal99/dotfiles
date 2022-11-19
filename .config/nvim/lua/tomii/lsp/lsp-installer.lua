@@ -42,6 +42,9 @@ lsp.cssls.setup(lsps_opts)
 -- Python
 lsp.pyright.setup(lsps_opts)
 
+-- JSON
+lsp.jsonls.setup(lsps_opts)
+
 -- Server language for lua.
 lsp.sumneko_lua.setup({
   on_attach = on_attach,
@@ -65,3 +68,5 @@ lsp.omnisharp.setup({
   sdk_include_prereleases = true,
   analyze_open_documents_only = false,
 })
+
+-- TODO: VHDL language server
