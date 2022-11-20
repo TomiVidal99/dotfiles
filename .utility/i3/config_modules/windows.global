@@ -12,8 +12,8 @@ set $ws8 "8:DISCORD "
 set $ws9 "9:MAIL "
 set $ws10 "10"
 # Windows for the second monitor
-set $ws11 "11"
-set $ws12 "12"
+set $ws11 "11:Quartus|Spice"
+set $ws12 "12:RTL"
 set $ws13 "13"
 set $ws14 "14"
 set $ws15 "15"
@@ -88,3 +88,7 @@ assign [class="discord"] $ws8
 # to workspace 9
 assign [class="thunderbird"] $ws9
 assign [class="mail"] $ws9
+# to workspace 11
+assign [class="quartus.exe"] $ws11
+# to workspace 12
+for_window [title="RTL Viewer" class="quartus.exe"] move container to workspace number $ws12

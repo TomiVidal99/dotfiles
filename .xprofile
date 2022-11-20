@@ -10,7 +10,8 @@ export TERMINAL="konsole"
 export BROWSER="firefox"
 
 GEM_PATH=/home/tomii/.local/share/gem/ruby/3.0.0/bin
-export PATH=$PATH:$GEM_PATH
+PYTHON_BIN_PATH=/home/tomii/.local/bin
+export PATH=$PATH:$GEM_PATH:$PYTHON_BIN_PATH
 
 # Export the reset i3 config script to be executed from rofi
 export PATH=$PATH:$HOME/.dotfiles/.utility/i3
