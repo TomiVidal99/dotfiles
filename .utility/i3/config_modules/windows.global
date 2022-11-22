@@ -12,8 +12,8 @@ set $ws8 "8:DISCORD "
 set $ws9 "9:MAIL "
 set $ws10 "10"
 # Windows for the second monitor
-set $ws11 "11"
-set $ws12 "12"
+set $ws11 "11:Quartus|Spice"
+set $ws12 "12:RTL"
 set $ws13 "13"
 set $ws14 "14"
 set $ws15 "15"
@@ -53,8 +53,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [class="Screenkey"] floating enable
 # Steam windows
-for_window [class="Steam"] floating enable # make all floating
-for_window [class="^Steam$" title="^Friends List$"] floating enable
+for_window [class="^Steam$" title="^Friends$"] floating enable
 for_window [class="^Steam$" title="Steam - News"] floating enable
 for_window [class="^Steam$" title=".* - Chat"] floating enable
 for_window [class="^Steam$" title="^Settings$"] floating enable
@@ -81,16 +80,15 @@ assign [class="dolphin"] $ws4
 for_window [class="Spotify"] move container to workspace number $ws5
 for_window [class="Clementine"] move container to workspace number $ws5
 # to workspace 6
-for_window [class="LTspice XVIII"] move container to workspace number $ws6
-assign [class="Quartus"] $ws6
-for_window [class="Quartus"] move container to workspace number $ws6
+for_window [class="LTspice XVIII"] move container to workspace number $ws4
 # to workspace 7
 assign [class="Octave"] $ws7
 # to workspace 8
 assign [class="discord"] $ws8
 # to workspace 9
-assign [class="mail"] $ws9
 assign [class="thunderbird"] $ws9
-
-# to workspace 10
-assign [class="Steam"] $ws10
+assign [class="mail"] $ws9
+# to workspace 11
+assign [class="quartus.exe"] $ws11
+# to workspace 12
+for_window [title="RTL Viewer" class="quartus.exe"] move container to workspace number $ws12

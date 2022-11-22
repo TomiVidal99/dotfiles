@@ -3,5 +3,4 @@
 sleep 30
 
 thunderbird &
-discord &
 disown
