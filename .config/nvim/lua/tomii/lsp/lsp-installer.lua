@@ -84,6 +84,7 @@ if not lspconfig.hdl_checker then
     };
   }
 end
+lsp.hdl_checker.setup(lsps_opts)
 
 -- CUSTOM LSPS
 
