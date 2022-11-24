@@ -391,6 +391,6 @@ mode "$scripts_mode" {
 
 # Custom Paths
 bindsym $mod+Shift+d exec $(sh ~/.utility/i3/launch_directories.sh)
-bindsym $mod+Shift+p exec $(sh ~/.utility/common/open_documents.sh)
+bindsym $mod+Shift+p exec $(sh ~/.utility/common/get_documents.sh)
 # - - - - - - - - - - - - - - - - - - - - 
 
