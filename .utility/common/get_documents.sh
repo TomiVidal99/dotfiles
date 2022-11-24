@@ -4,7 +4,7 @@
 # file and lets you (with rofi) open them in your file manager
 
 
-DIRECTORIES=~/.dotfiles/.utility/common/documents_dir
+DIRECTORIES=~/.dotfiles/.utility/common/documents_directories
 
 # opens rofi with the right flags
 function rofi_command() {
