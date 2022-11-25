@@ -14,7 +14,7 @@ function rofi_command() {
 DIRECTORIES=~/.utility/i3/files_directories
 SELECTED_DIRECTORY_NAME=$(cat $DIRECTORIES | cut -d'=' -f1 | rofi_command )
 SELECTED_DIRECTORY=$(cat $DIRECTORIES | grep $SELECTED_DIRECTORY_NAME | cut -d'=' -f2)
-DIRECTORIES_APP=dolphin
+DIRECTORIES_APP=xdg-open
 
 if [[ "$SELECTED_DIRECTORY_NAME" = "" || "$SELECTED_DIRECTORY" = "" ]]; then
   #rofi -e "You didn't select a directory!\nDir name: ${SELECTED_DIRECTORY_NAME}\nDir path:${SELECTED_DIRECTORY}"
