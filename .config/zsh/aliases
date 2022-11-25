@@ -38,6 +38,7 @@ alias acp='git_add_commit_push'
 # Custom functions
 alias awd='add_to_working_directory'
 alias rwd='remove_from_working_directory'
+alias acd='add_common_directory'
 
 # Octave
 alias o='octave --traditional'

@@ -14,7 +14,6 @@
 
 # won't ignore the following files
 # i3 config
-!i3/
 !i3status/
 
 # neovim config
