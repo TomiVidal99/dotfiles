@@ -25,13 +25,13 @@ function parse_options() {
 }
 
 # extracts the path from the given return value
-function parse_selected_item() {
-  sed -e 's/<i>\(.*\)<\\i>/\1/' 
+function get_path_from_selected_option() {
+  sed -E "s/.*<i>//" | sed -E "s/<\/i>.*//"
 }
 
 DOCUMENTS=$(cat $DIRECTORIES | xargs -I '{}' fd -e pdf . {})
 SELECTED_DOCUMENT_NAME=$(echo "$DOCUMENTS" | parse_options | rofi_command)
-SELECTED_DOCUMENT_PATH=$(expr "$SELECTED_DOCUMENT_NAME" | sed -E "s/.*<i>//" | sed -E "s/<\/i>.*//")
+SELECTED_DOCUMENT_PATH=$(echo "$SELECTED_DOCUMENT_NAME" | get_path_from_selected_option)
 
 echo "$SELECTED_DOCUMENT_NAME"
 echo "$SELECTED_DOCUMENT_PATH"
