@@ -64,27 +64,43 @@ lsp.sumneko_lua.setup({
 })
 
 -- VHDL
-local lspconfig = require'lspconfig'
--- Only define once
-if not lspconfig.hdl_checker then
-  require'lspconfig/configs'.hdl_checker = {
-    default_config = {
-    cmd = {"hdl_checker", "--lsp", };
-    filetypes = {"vhdl", "verilog", "systemverilog"};
-      root_dir = function(fname)
-        -- will look for a parent directory with a .git directory. If none, just
-        -- use the current directory
-        --return lspconfig.util.find_git_ancestor(fname) or lspconfig.util.path.dirname(fname)
-        -- or (not both)
-        -- Will look for the .hdl_checker.config file in a parent directory. If
-        -- none, will use the current directory
-        return lspconfig.util.root_pattern('.hdl_checker.config')(fname) or lspconfig.util.path.dirname(fname)
-      end;
-      settings = {};
-    };
-  }
+local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
+
+-- VHDL: Manual add rust_hdl server
+if not configs.rust_hdl then
+	configs.rust_hdl = {
+		default_config = {
+			cmd = { "vhdl_ls" },
+			filetypes = { "vhdl" },
+			root_dir = function(fname)
+				return lspconfig.util.root_pattern("vhdl_ls.toml")(fname) or vim.fn.getcwd()
+			end,
+			settings = {},
+		},
+	}
 end
-lsp.hdl_checker.setup(lsps_opts)
+require("lspconfig").rust_hdl.setup(lsps_opts)
+
+-- VHDL: hdl_checker
+if not require("lspconfig.configs").hdl_checker then
+	require("lspconfig.configs").hdl_checker = {
+		default_config = {
+			cmd = { "hdl_checker", "--lsp" },
+			filetypes = { "vhdl", "verilog", "systemverilog" },
+			root_dir = function(fname)
+				-- will look for the .hdl_checker.config file in parent directory, a
+				-- .git directory, or else use the current directory, in that order.
+				local util = require("lspconfig").util
+				return util.root_pattern(".hdl_checker.config")(fname)
+					or util.find_git_ancestor(fname)
+					or util.path.dirname(fname)
+			end,
+			settings = {},
+		},
+	}
+end
+require("lspconfig").hdl_checker.setup(lsps_opts)
 
 -- CUSTOM LSPS
 
