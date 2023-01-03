@@ -103,6 +103,7 @@ assign [class="thunderbird"] $ws9
 assign [class="mail"] $ws9
 # to workspace 11
 assign [class="quartus.exe"] $ws11
+assign [class="xviix65.exe"] $ws11
 # to workspace 12
 for_window [title="RTL Viewer" class="quartus.exe"] move container to workspace number $ws12
 # to workspace 13

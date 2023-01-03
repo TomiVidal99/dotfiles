@@ -86,9 +86,9 @@ local function lsp_keymaps(bufnr)
   keymap_buf('gD', '<CMD>lua vim.lsp.buf.declaration()<CR>')
   keymap_buf('<leader>dd', '<CMD>lua vim.lsp.buf.type_definition()<CR>')
   keymap_buf('<leader>rr', '<CMD>lua vim.lsp.buf.rename()<CR>')
-  keymap_buf("<leader>ff", "<CMD>lua vim.lsp.buf.formatting()<CR>")
+  keymap_buf("<leader>ff", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>")
 
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
 end
 
 HANDLERS.on_attach = function(client, bufnr)
