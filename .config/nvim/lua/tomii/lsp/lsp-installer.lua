@@ -31,6 +31,8 @@ capabilities.offsetEncoding = "utf-8"
 -- Define locallly the lsp
 local lsp = require("lspconfig")
 local lsps_opts = {on_attach = on_attach, capabilities = capabilities}
+local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
 
 -- Server for cpp/c
 lsp.clangd.setup(lsps_opts)
@@ -63,9 +65,21 @@ lsp.sumneko_lua.setup({
   settings = require("tomii.lsp.settings.sumneko_lua"),
 })
 
--- VHDL
-local lspconfig = require("lspconfig")
-local configs = require("lspconfig.configs")
+-- Bash
+if not configs.bash_language_server then
+	configs.bash_language_server = {
+		default_config = {
+      name = "bash-language-server",
+			cmd = { "bash-language-server", "start" },
+			filetypes = { "sh" },
+			root_dir = function()
+				return vim.fn.getcwd()
+			end,
+			-- settings = {},
+		},
+	}
+end
+require("lspconfig").bash_language_server.setup(lsps_opts)
 
 -- VHDL: Manual add rust_hdl server
 if not configs.rust_hdl then
