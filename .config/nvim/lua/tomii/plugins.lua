@@ -76,6 +76,12 @@ return packer.startup(function(use)
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 	})
+	use({ -- icons
+		"onsails/lspkind.nvim",
+		config = function()
+			require("lspkind").init({})
+		end,
+	})
 	use({ -- Type checking
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
