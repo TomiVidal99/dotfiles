@@ -69,6 +69,9 @@ return packer.startup(function(use)
 		"williamboman/nvim-lsp-installer",
 		"neovim/nvim-lspconfig",
 	})
+	use({ -- LSP loading display
+		"j-hui/fidget.nvim",
+	})
 	use({ -- better UI for LSP related
 		"glepnir/lspsaga.nvim",
 		branch = "main",
