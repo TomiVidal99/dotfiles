@@ -10,8 +10,8 @@ lspsaga.setup({
 		-- currently only round theme
 		theme = "round",
 		-- border type can be single,double,rounded,solid,shadow.
-		border = "solid",
-		winblend = 20,
+		border = "rounded",
+		winblend = 0,
 		expand = "",
 		collapse = "",
 		preview = " ",
@@ -36,5 +36,13 @@ lspsaga.setup({
 			black = "#1c1c19",
 		},
 		kind = {},
+	},
+	symbol_in_winbar = {
+		enable = true,
+		separator = "    ",
+		hide_keyword = true,
+		show_file = true,
+		folder_level = 2,
+		respect_root = false,
 	},
 })
