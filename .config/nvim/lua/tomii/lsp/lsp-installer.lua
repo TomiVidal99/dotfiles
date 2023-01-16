@@ -23,30 +23,30 @@ capabilities.offsetEncoding = "utf-8"
 -- Define locallly the lsp
 local lsps_opts = { on_attach = on_attach, capabilities = capabilities }
 
--- -- Server for cpp/c
--- lspconfig.clangd.setup(lsps_opts)
---
--- -- Server for javascript, typescript, react javascript and react typescript.
--- lspconfig.tsserver.setup(lsps_opts)
---
--- -- General diagnostics for most languages
--- lspconfig.diagnosticls.setup(lsps_opts)
---
--- -- Tailwindcss support, shows colors and completion
--- lspconfig.tailwindcss.setup(lsps_opts)
---
--- -- For html kinda of snippets
--- lspconfig.emmet_ls.setup(lsps_opts)
---
--- -- For css, scss and less
--- lspconfig.cssls.setup(lsps_opts)
---
--- -- Python
--- lspconfig.pyright.setup(lsps_opts)
---
--- -- JSON
--- lspconfig.jsonls.setup(lsps_opts)
---
+-- Server for cpp/c
+lspconfig.clangd.setup(lsps_opts)
+
+-- Server for javascript, typescript, react javascript and react typescript.
+lspconfig.tsserver.setup(lsps_opts)
+
+-- General diagnostics for most languages
+lspconfig.diagnosticls.setup(lsps_opts)
+
+-- Tailwindcss support, shows colors and completion
+lspconfig.tailwindcss.setup(lsps_opts)
+
+-- For html kinda of snippets
+lspconfig.emmet_ls.setup(lsps_opts)
+
+-- For css, scss and less
+lspconfig.cssls.setup(lsps_opts)
+
+-- Python
+lspconfig.pyright.setup(lsps_opts)
+
+-- JSON
+lspconfig.jsonls.setup(lsps_opts)
+
 -- LUA
 lspconfig.sumneko_lua.setup({
   on_attach = on_attach,
@@ -55,9 +55,9 @@ lspconfig.sumneko_lua.setup({
 })
 
 -- CUSTOM LSPS
--- lspconfig.rust_hdl.setup(lsps_opts)
--- lspconfig.bash_language_server.setup(lsps_opts)
--- lspconfig.hdl_checker.setup(lsps_opts)
+lspconfig.rust_hdl.setup(lsps_opts)
+lspconfig.bash_language_server.setup(lsps_opts)
+lspconfig.hdl_checker.setup(lsps_opts)
 
 -- mason-lspconfig allows me to automatically configure all installed LPSs
 -- Though the configs must exists in the lspconfig.

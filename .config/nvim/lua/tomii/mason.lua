@@ -10,5 +10,5 @@ end
 -- first i get the custom lspconfig lsp settings
 require("tomii.lsp.settings.custom_settings")
 masonconfig.setup({
-  ensure_installed = { "tsserver" }
+  ensure_installed = { "tsserver", "clangd", "diagnosticls" }
 })
