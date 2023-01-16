@@ -1,18 +1,5 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok then
-	print("ERROR: nvim-lsp-installer not available. Called from lsp-installer.lua")
-	return
-end
-local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_ok then
-	print("ERROR: lspconfig not available. Called from lsp-installer.lua")
-	return
-end
-local lspconfig_configs_ok, lspconfig_config = pcall(require, "lspconfig/configs")
-if not lspconfig_configs_ok then
-	print("ERROR: lspconfig/configs not available. Called from lsp-installer.lua")
-	return
-end
+local lsp_installer = require("nvim-lsp-installer")
+local lspconfig = require("lspconfig")
 
 -- Import options from the other files
 local on_attach = require("tomii.lsp.handlers").on_attach
@@ -35,7 +22,6 @@ capabilities.offsetEncoding = "utf-8"
 
 -- Define locallly the lsp
 local lsps_opts = { on_attach = on_attach, capabilities = capabilities }
-local configs = require("lspconfig.configs")
 
 -- -- Server for cpp/c
 -- lspconfig.clangd.setup(lsps_opts)
@@ -68,67 +54,10 @@ lspconfig.sumneko_lua.setup({
   settings = require("tomii.lsp.settings.sumneko_lua"),
 })
 
--- Bash
-if not lspconfig_config.bash_language_server then
-	configs.bash_language_server = {
-		default_config = {
-			name = "bash-language-server",
-			cmd = { "bash-language-server", "start" },
-			filetypes = { "sh" },
-			root_dir = function()
-				return vim.fn.getcwd()
-			end,
-			-- settings = {},
-		},
-	}
-end
--- require("lspconfig").bash_language_server.setup(lsps_opts)
-
--- VHDL: Manual add rust_hdl server
-if not lspconfig_config.rust_hdl then
-	configs.rust_hdl = {
-		default_config = {
-			cmd = { "vhdl_ls" },
-			filetypes = { "vhdl" },
-			root_dir = function(fname)
-				return lspconfig.util.root_pattern("vhdl_ls.toml")(fname) or vim.fn.getcwd()
-			end,
-			settings = {},
-		},
-	}
-end
--- require("lspconfig").rust_hdl.setup(lsps_opts)
-
--- VHDL: hdl_checker
-if not lspconfig_config.hdl_checker then
-	lspconfig_config.hdl_checker = {
-		default_config = {
-			cmd = { "hdl_checker", "--lsp" },
-			filetypes = { "vhdl", "verilog", "systemverilog" },
-			root_dir = function(fname)
-				-- will look for the .hdl_checker.config file in parent directory, a
-				-- .git directory, or else use the current directory, in that order.
-				local util = lspconfig.util
-				return util.root_pattern(".hdl_checker.config")(fname)
-					or util.find_git_ancestor(fname)
-					or util.path.dirname(fname)
-			end,
-			settings = {},
-		},
-	}
-end
--- require("lspconfig").hdl_checker.setup(lsps_opts)
-
 -- CUSTOM LSPS
-
--- mlang
--- vim.lsp.start({
---   name = "mlang",
---   cmd = {"/home/tomii/programming/lsp_mlang/run.sh"},
---   filetypes = { "matlab", "octave" },
---   root_dir = vim.fs.dirname(vim.fs.find({'setup.py', 'pyproject.toml'}, { upward = true })[1]),
---   settings = {},
--- })
+-- lspconfig.rust_hdl.setup(lsps_opts)
+-- lspconfig.bash_language_server.setup(lsps_opts)
+-- lspconfig.hdl_checker.setup(lsps_opts)
 
 -- mason-lspconfig allows me to automatically configure all installed LPSs
 -- Though the configs must exists in the lspconfig.
