@@ -3,6 +3,7 @@
 -- This file just loads some dependencies.
 require "tomii.options"
 require "tomii.plugins"
+require "tomii.mason"
 require "tomii.lsp"
 require "tomii.null-ls"
 require "tomii.tree-sitter"

@@ -90,9 +90,7 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- more lsp stuff: completion, formatting and so one, that some lsp dont come with
 	use({ -- lets you manage external tools like LSPs, DAP servers, etc. without the need of you having to install the binaries independenlty.
 		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
-		end,
+		"williamboman/mason-lspconfig.nvim",
 	})
 
 	-- COMPLETION

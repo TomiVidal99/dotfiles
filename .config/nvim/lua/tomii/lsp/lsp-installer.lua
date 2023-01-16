@@ -3,8 +3,13 @@ if not status_ok then
 	print("ERROR: nvim-lsp-installer not available. Called from lsp-installer.lua")
 	return
 end
-local lsp_configs_ok, lspconfig = pcall(require, "lspconfig/configs")
-if not lsp_configs_ok then
+local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_ok then
+	print("ERROR: lspconfig not available. Called from lsp-installer.lua")
+	return
+end
+local lspconfig_configs_ok, lspconfig_config = pcall(require, "lspconfig/configs")
+if not lspconfig_configs_ok then
 	print("ERROR: lspconfig/configs not available. Called from lsp-installer.lua")
 	return
 end
@@ -64,7 +69,7 @@ lspconfig.sumneko_lua.setup({
 })
 
 -- Bash
-if not configs.bash_language_server then
+if not lspconfig_config.bash_language_server then
 	configs.bash_language_server = {
 		default_config = {
 			name = "bash-language-server",
@@ -80,7 +85,7 @@ end
 -- require("lspconfig").bash_language_server.setup(lsps_opts)
 
 -- VHDL: Manual add rust_hdl server
-if not configs.rust_hdl then
+if not lspconfig_config.rust_hdl then
 	configs.rust_hdl = {
 		default_config = {
 			cmd = { "vhdl_ls" },
@@ -95,15 +100,15 @@ end
 -- require("lspconfig").rust_hdl.setup(lsps_opts)
 
 -- VHDL: hdl_checker
-if not require("lspconfig.configs").hdl_checker then
-	require("lspconfig.configs").hdl_checker = {
+if not lspconfig_config.hdl_checker then
+	lspconfig_config.hdl_checker = {
 		default_config = {
 			cmd = { "hdl_checker", "--lsp" },
 			filetypes = { "vhdl", "verilog", "systemverilog" },
 			root_dir = function(fname)
 				-- will look for the .hdl_checker.config file in parent directory, a
 				-- .git directory, or else use the current directory, in that order.
-				local util = require("lspconfig").util
+				local util = lspconfig.util
 				return util.root_pattern(".hdl_checker.config")(fname)
 					or util.find_git_ancestor(fname)
 					or util.path.dirname(fname)
@@ -129,6 +134,6 @@ end
 -- Though the configs must exists in the lspconfig.
 require("mason-lspconfig").setup_handlers({
 	function(server_name) -- default handler (optional)
-		require("lspconfig")[server_name].setup(lsps_opts)
+		lspconfig[server_name].setup(lsps_opts)
 	end,
 })
