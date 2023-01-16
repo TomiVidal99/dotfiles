@@ -92,7 +92,7 @@ local function lsp_keymaps(bufnr)
 end
 
 HANDLERS.on_attach = function(client, bufnr)
-  for val, key in pairs(PREVENT_LSPS_FROM_FORMATTING) do
+  for _, key in pairs(PREVENT_LSPS_FROM_FORMATTING) do
     if client.name == key then
       client.server_capabilities.document_formatting = false
     end
