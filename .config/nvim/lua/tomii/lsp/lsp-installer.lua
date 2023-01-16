@@ -1,12 +1,12 @@
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
-  print "ERROR: nvim-lsp-installer not available. Called from lsp-installer.lua"
-  return
+	print("ERROR: nvim-lsp-installer not available. Called from lsp-installer.lua")
+	return
 end
-local lsp_configs_ok, lsp_configs = pcall(require, "lspconfig/configs")
+local lsp_configs_ok, lspconfig = pcall(require, "lspconfig/configs")
 if not lsp_configs_ok then
-  print "ERROR: lspconfig/configs not available. Called from lsp-installer.lua"
-  return
+	print("ERROR: lspconfig/configs not available. Called from lsp-installer.lua")
+	return
 end
 
 -- Import options from the other files
@@ -15,51 +15,49 @@ local capabilities = require("tomii.lsp.handlers").capabilities
 
 -- Register a handler that will be called for all installed servers.
 lsp_installer.setup({
-  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-  ui = {
-    icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗"
-    }
-  }
+	automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+	ui = {
+		icons = {
+			server_installed = "✓",
+			server_pending = "➜",
+			server_uninstalled = "✗",
+		},
+	},
 })
 
 -- Error that throws clangd
 capabilities.offsetEncoding = "utf-8"
 
 -- Define locallly the lsp
-local lsp = require("lspconfig")
-local lsps_opts = {on_attach = on_attach, capabilities = capabilities}
-local lspconfig = require("lspconfig")
+local lsps_opts = { on_attach = on_attach, capabilities = capabilities }
 local configs = require("lspconfig.configs")
 
--- Server for cpp/c
-lsp.clangd.setup(lsps_opts)
-
--- Server for javascript, typescript, react javascript and react typescript.
-lsp.tsserver.setup(lsps_opts)
-
--- General diagnostics for most languages
-lsp.diagnosticls.setup(lsps_opts)
-
--- Tailwindcss support, shows colors and completion
-lsp.tailwindcss.setup(lsps_opts)
-
--- For html kinda of snippets
-lsp.emmet_ls.setup(lsps_opts)
-
--- For css, scss and less
-lsp.cssls.setup(lsps_opts)
-
--- Python
-lsp.pyright.setup(lsps_opts)
-
--- JSON
-lsp.jsonls.setup(lsps_opts)
-
+-- -- Server for cpp/c
+-- lspconfig.clangd.setup(lsps_opts)
+--
+-- -- Server for javascript, typescript, react javascript and react typescript.
+-- lspconfig.tsserver.setup(lsps_opts)
+--
+-- -- General diagnostics for most languages
+-- lspconfig.diagnosticls.setup(lsps_opts)
+--
+-- -- Tailwindcss support, shows colors and completion
+-- lspconfig.tailwindcss.setup(lsps_opts)
+--
+-- -- For html kinda of snippets
+-- lspconfig.emmet_ls.setup(lsps_opts)
+--
+-- -- For css, scss and less
+-- lspconfig.cssls.setup(lsps_opts)
+--
+-- -- Python
+-- lspconfig.pyright.setup(lsps_opts)
+--
+-- -- JSON
+-- lspconfig.jsonls.setup(lsps_opts)
+--
 -- LUA
-lsp.sumneko_lua.setup({
+lspconfig.sumneko_lua.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   settings = require("tomii.lsp.settings.sumneko_lua"),
@@ -69,7 +67,7 @@ lsp.sumneko_lua.setup({
 if not configs.bash_language_server then
 	configs.bash_language_server = {
 		default_config = {
-      name = "bash-language-server",
+			name = "bash-language-server",
 			cmd = { "bash-language-server", "start" },
 			filetypes = { "sh" },
 			root_dir = function()
@@ -79,7 +77,7 @@ if not configs.bash_language_server then
 		},
 	}
 end
-require("lspconfig").bash_language_server.setup(lsps_opts)
+-- require("lspconfig").bash_language_server.setup(lsps_opts)
 
 -- VHDL: Manual add rust_hdl server
 if not configs.rust_hdl then
@@ -94,7 +92,7 @@ if not configs.rust_hdl then
 		},
 	}
 end
-require("lspconfig").rust_hdl.setup(lsps_opts)
+-- require("lspconfig").rust_hdl.setup(lsps_opts)
 
 -- VHDL: hdl_checker
 if not require("lspconfig.configs").hdl_checker then
@@ -114,7 +112,7 @@ if not require("lspconfig.configs").hdl_checker then
 		},
 	}
 end
-require("lspconfig").hdl_checker.setup(lsps_opts)
+-- require("lspconfig").hdl_checker.setup(lsps_opts)
 
 -- CUSTOM LSPS
 
@@ -126,3 +124,11 @@ require("lspconfig").hdl_checker.setup(lsps_opts)
 --   root_dir = vim.fs.dirname(vim.fs.find({'setup.py', 'pyproject.toml'}, { upward = true })[1]),
 --   settings = {},
 -- })
+
+-- mason-lspconfig allows me to automatically configure all installed LPSs
+-- Though the configs must exists in the lspconfig.
+require("mason-lspconfig").setup_handlers({
+	function(server_name) -- default handler (optional)
+		require("lspconfig")[server_name].setup(lsps_opts)
+	end,
+})
