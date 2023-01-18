@@ -104,6 +104,9 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+-- Error that throws clangd
+capabilities.offsetEncoding = "utf-8"
+
 -- native LSP completion
 local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_nvim_lsp_ok then
