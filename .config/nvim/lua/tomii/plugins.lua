@@ -56,13 +56,18 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim") -- identation lines
 	use({
 		"nvim-lualine/lualine.nvim", -- status line down below
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+		},
 	})
 	use("fgheng/winbar.nvim") -- winbar
-	-- use { -- tab theme
-	--   "kdheepak/tabline.nvim",
-	--   requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } }
-	-- }
+	use({ -- tab theme
+		"kdheepak/tabline.nvim",
+		requires = {
+			{ "hoob3rt/lualine.nvim" },
+			{ "nvim-lua/lsp-status.nvim" },
+		},
+	})
 
 	-- LSP
 	use({ -- general config for the LSP
@@ -164,6 +169,10 @@ return packer.startup(function(use)
 		requires = {
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
+	})
+	use({ -- Allows you to modify multi lines visually like shift+alt+a in vsco**
+		"mg979/vim-visual-multi",
+		branch = "master",
 	})
 
 	-- REACT, TSX, ETC
