@@ -156,6 +156,7 @@ return packer.startup(function(use)
 		end,
 	}) -- completion of (), [], {} and so on
 	use("lewis6991/gitsigns.nvim") -- visual indicator for git repositories
+  use("tpope/vim-fugitive") -- tons of commands to work with git
 
 	use({ -- preview markdown files (useful when writting READMEs)
 		"iamcco/markdown-preview.nvim",
