@@ -87,6 +87,7 @@ cmp.setup({
       -- Kind icons
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.menu = ({
+        nvim_lsp = "[LSP]",
         nvim_lua = "[Lua]",
         latex_symbols = "[Latex Symbol]",
         luasnip = "[Snippet]",
