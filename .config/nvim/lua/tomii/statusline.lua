@@ -19,6 +19,10 @@ end
 -- Options
 lualine.setup({
 	extensions = {
+		"fzf",
+		"neo-tree",
+		"fugitive",
+		"quickfix",
 		"nvim-tree",
 	},
 	options = {
