@@ -6,9 +6,6 @@ block = "net"
 interval = 1
 
 [[block]]
-block = "sound"
-
-[[block]]
 block = "weather"
 format = "{weather} {temp}C  {humidity}  ({location})"
 service = { name = "openweathermap", api_key = "0b440372cffdd59274b4e0e2594c2f86", city_id = "3855104", units = "metric", lang = "sp" }
@@ -20,13 +17,16 @@ format = "🎧"
 hide_disconnected = true
 
 [[block]]
+block = "battery"
+if_command = "test -e /sys/class/power_supply/BAT0"
+
+[[block]]
+block = "sound"
+
+[[block]]
 block = "time"
 interval = 5
 format = "%R"
-
-[[block]]
-block = "battery"
-if_command = "test -e /sys/class/power_supply/BAT0"
 
 [[block]]
 block = "time"
