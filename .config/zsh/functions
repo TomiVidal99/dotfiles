@@ -50,7 +50,7 @@ function switch_working_directory() {
     echo "No directory selected. Did not switch."
     return
   fi
-  FULLPATH=$(echo $WDIRS | grep $DIR | cut -d'=' -f2)
+  FULLPATH=$(echo $WDIRS | grep $DIR | head -n 1 | cut -d'=' -f2)
   if [ -d $FULLPATH ]; then
     cd $FULLPATH
     update_status

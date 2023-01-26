@@ -16,7 +16,7 @@ focus_follows_mouse no
 # for which we configure key bindings later on.  We use variables to avoid repeating the names in multiple places.  
 # Windows for the first and primary monitor
 set $ws1 "1:🖥️"
-set $ws2 "2:@"
+set $ws2 "2:🌎"
 set $ws3 "3:📄"
 set $ws4 "4:📁"
 set $ws5 "5:💽"
@@ -29,7 +29,7 @@ set $ws10 "10"
 set $ws11 "11:Quartus|Spice"
 set $ws12 "12:RTL"
 set $ws13 "13:🎨"
-set $ws14 "14"
+set $ws14 "14:🔎"
 set $ws15 "15"
 set $ws16 "16"
 set $ws17 "17"
@@ -90,11 +90,9 @@ assign [class="okular"] $ws3
 # to workspace 4
 assign [class="dolphin"] $ws4
 # to workspace 5
-# for spotify specifically
 for_window [class="Spotify"] move container to workspace number $ws5
 for_window [class="Clementine"] move container to workspace number $ws5
 # to workspace 6
-for_window [class="LTspice XVIII"] move container to workspace number $ws4
 # to workspace 7
 # to workspace 8
 assign [class="discord"] $ws8
@@ -103,10 +101,13 @@ assign [class="thunderbird"] $ws9
 assign [class="mail"] $ws9
 # to workspace 11
 assign [class="quartus.exe"] $ws11
+assign [class="xviix65.exe"] $ws11
 # to workspace 12
 for_window [title="RTL Viewer" class="quartus.exe"] move container to workspace number $ws12
 # to workspace 13
 assign [class="Octave"] $ws13
+# to workspace 14
+assign [class="vsim"] $ws14
 # - - - - - - - - - - - - - - - - - - - - 
 
 # - - - - - - - - - - plasma-integration (global) - - - - - - - - - - 
@@ -318,28 +319,43 @@ client.urgent           #011318   #002b36     #002b36   #a9a9a9
 # - - - - - - - - - - - - - - - - - - - - 
 
 # - - - - - - - - - - bar (laptop) - - - - - - - - - - 
+#bar {
+#    #tray_output $primary_monitor
+#    #font pango: Ligconsolata condensed SemiBold 13, NotoMono Nerd Font Mono 13
+#    font pango: NotoMono Nerd Font Mono 13
+#    position top
+#
+#    # Run the bumblebee-status
+#    status_command bumblebee-status \
+#        -m traffic arch-update pasink weather battery datetime date \
+#        -p interval=1s \
+#           datetime.format="%H:%M" \
+#           date.format="%A, %-d/%-m/%-Y" \
+#           traffic.showname=False \
+#           traffic.format='{:.2f}' \
+#           weather.location='La Plata' \
+#           weather.showminmax=True \
+#        -t solarized-powerline
+#        # some other themes that are very cool! ;)
+#        #-t nord-powerline
+#        #-t iceberg-powerline
+#
+#    # Solarized-powerline alike Theme
+#    colors {
+#      background #011318
+#      statusline #eeeeee
+#      separator #666666
+#      #                   Bord        Back        Text
+#      focused_workspace   #011318     #586e75     #002b36
+#      active_workspace    #011318     #002b36     #a9a9a9
+#      inactive_workspace  #011318     #002b36     #a9a9a9
+#      urgent_workspace    #011318     #b58900     #002b36
+#    }
+#}
 bar {
-    #tray_output $primary_monitor
-    #font pango: Ligconsolata condensed SemiBold 13, NotoMono Nerd Font Mono 13
     font pango: NotoMono Nerd Font Mono 13
     position top
-
-    # Run the bumblebee-status
-    status_command bumblebee-status \
-        -m traffic arch-update pasink weather battery datetime date \
-        -p interval=1s \
-           datetime.format="%H:%M" \
-           date.format="%A, %-d/%-m/%-Y" \
-           traffic.showname=False \
-           traffic.format='{:.2f}' \
-           weather.location='La Plata' \
-           weather.showminmax=True \
-        -t solarized-powerline
-        # some other themes that are very cool! ;)
-        #-t nord-powerline
-        #-t iceberg-powerline
-
-    # Solarized-powerline alike Theme
+    status_command /usr/bin/i3status-rs /home/tomii/.dotfiles/.config/i3status-rust/config.toml
     colors {
       background #011318
       statusline #eeeeee
@@ -359,8 +375,8 @@ bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+x exec dolphin
 
 # Sound and Mediaplayer
-bindsym $mod+$alt+k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status 
-bindsym $mod+$alt+j exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym $mod+$alt+k exec --no-startup-id sh ~/.utility/i3/update_volume.sh "UP"
+bindsym $mod+$alt+j exec --no-startup-idsh ~/.utility/i3/update_volume.sh "DOWN"
 bindsym $mod+$alt+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym $mod+$alt+n exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym $mod+$alt+p exec playerctl play

@@ -20,6 +20,8 @@ function gdiff_() {zle -I; echo "GIT: diff\n "; gdiff; is_git_directory}; zle -N
 bindkey -M vicmd 'gd' gdiff_
 function gbranch_() {zle -I; echo "GIT: branch\n "; gbranch; is_git_directory}; zle -N gbranch_
 bindkey -M vicmd 'gb' gbranch_
+function gstatus_() {zle -I; echo "GIT: status\n "; gstatus; is_git_directory}; zle -N gstatus_
+bindkey -M vicmd 'gs' gstatus_
 # TODO: find a way to make this work.
 #function gcom_() {zle -I; echo "GIT: commit\n"; is_git_directory}; zle -N gcom_
 #bindkey -M vicmd 'gc' gcom_
