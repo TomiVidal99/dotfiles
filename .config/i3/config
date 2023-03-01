@@ -113,7 +113,7 @@ assign [class="vsim"] $ws14
 # - - - - - - - - - - plasma-integration (global) - - - - - - - - - - 
 # Remove plasma background
 exec --no-startup-id wmctrl -c Plasma
-for_window [title="Escritorio — Plasma"] kill; floating enable; border none
+for_window [title="Escritorio "] kill; floating enable; border none
 # - - - - - - - - - - - - - - - - - - - - 
 
 # - - - - - - - - - - shortcuts (global) - - - - - - - - - - 
@@ -319,39 +319,6 @@ client.urgent           #011318   #002b36     #002b36   #a9a9a9
 # - - - - - - - - - - - - - - - - - - - - 
 
 # - - - - - - - - - - bar (laptop) - - - - - - - - - - 
-#bar {
-#    #tray_output $primary_monitor
-#    #font pango: Ligconsolata condensed SemiBold 13, NotoMono Nerd Font Mono 13
-#    font pango: NotoMono Nerd Font Mono 13
-#    position top
-#
-#    # Run the bumblebee-status
-#    status_command bumblebee-status \
-#        -m traffic arch-update pasink weather battery datetime date \
-#        -p interval=1s \
-#           datetime.format="%H:%M" \
-#           date.format="%A, %-d/%-m/%-Y" \
-#           traffic.showname=False \
-#           traffic.format='{:.2f}' \
-#           weather.location='La Plata' \
-#           weather.showminmax=True \
-#        -t solarized-powerline
-#        # some other themes that are very cool! ;)
-#        #-t nord-powerline
-#        #-t iceberg-powerline
-#
-#    # Solarized-powerline alike Theme
-#    colors {
-#      background #011318
-#      statusline #eeeeee
-#      separator #666666
-#      #                   Bord        Back        Text
-#      focused_workspace   #011318     #586e75     #002b36
-#      active_workspace    #011318     #002b36     #a9a9a9
-#      inactive_workspace  #011318     #002b36     #a9a9a9
-#      urgent_workspace    #011318     #b58900     #002b36
-#    }
-#}
 bar {
     font pango: NotoMono Nerd Font Mono 13
     position top

@@ -1,10 +1,15 @@
-theme = "solarized-dark"
-icons = "awesome"
 icons_format = " <span font='18'>{icon}</span> "
+
+[theme]
+theme = "solarized-dark"
+[icons]
+icons = "awesome6"
 
 [[block]]
 block = "net"
+format = "$icon ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K)"
 interval = 1
+missing_format = ""
 [block.theme_overrides]
 idle_bg = "#a9a9a9"
 idle_fg = "#011318"
@@ -12,21 +17,24 @@ idle_fg = "#011318"
 [[block]]
 block = "bluetooth"
 mac = "90:7A:58:C6:73:CF"
-format = "{percentage}"
-hide_disconnected = true
+format = "$icon"
+disconnected_format = ""
 icons_format = " <span font='12'>🎧</span> "
 
 [[block]]
 block = "weather"
-format = "{weather} {temp}C   {humidity}%"
+format = "$icon $weather $temp C   $humidity ($location)"
 service = { name = "openweathermap", api_key = "0b440372cffdd59274b4e0e2594c2f86", city_id = "3855104", units = "metric", lang = "sp" }
+autolocate = true
+autolocate_interval = "once"
 
 [[block]]
 block = "pacman"
 interval = 600
-format = "{pacman}"
-format_singular = "{pacman}"
-format_up_to_date = "Updated"
+format = "$icon $pacman.eng{w:1}"
+format_singular = "$icon $both.eng{w:1}"
+aur_command = "yay -Qua"
+format_up_to_date = "$icon Updated"
 critical_updates_regex = "(linux|linux-lts|linux-zen)"
 icons_format = " <span font='20'>󱧘</span> "
 # pop-up a menu showing the available updates. Replace wofi with your favourite menu command.
@@ -35,6 +43,7 @@ icons_format = " <span font='20'>󱧘</span> "
 
 [[block]]
 block = "battery"
+format = " $icon $percentage "
 if_command = "test -e /sys/class/power_supply/BAT0"
 
 [[block]]
@@ -46,13 +55,13 @@ idle_fg = "#011318"
 [[block]]
 block = "time"
 interval = 5
-format = "%R"
+format = "$icon $timestamp.datetime(f:'%R', l:es_AR)"
 
 [[block]]
 block = "time"
 interval = 5
-format = "%A %d/%m"
-locale = "es_AR"
+#timezone = "America/Buenos_Aires"
+format = "$icon $timestamp.datetime(f:'%A %d/%m', l:es_AR)"
 [block.theme_overrides]
 idle_bg = "#a9a9a9"
 idle_fg = "#011318"
