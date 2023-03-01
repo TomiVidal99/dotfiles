@@ -31,8 +31,8 @@ autolocate_interval = "once"
 [[block]]
 block = "pacman"
 interval = 600
-format = "$icon $pacman.eng{w:1}"
-format_singular = "$icon $both.eng{w:1}"
+format = "$icon $both.eng"
+format_singular = "$icon $both.eng"
 aur_command = "yay -Qua"
 format_up_to_date = "$icon Updated"
 critical_updates_regex = "(linux|linux-lts|linux-zen)"
