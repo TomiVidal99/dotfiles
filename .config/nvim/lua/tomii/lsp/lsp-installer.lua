@@ -51,7 +51,6 @@ local custom_lsps = {
 for _, lsp in pairs(custom_lsps) do
   lspconfig[lsp].setup(lsps_opts)
 end
-lsp.hdl_checker.setup(lsps_opts)
 
 -- mason-lspconfig allows me to automatically configure all installed LPSs
 -- Though the configs must exists in the lspconfig.
