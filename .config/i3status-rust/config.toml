@@ -24,6 +24,7 @@ icons_format = " <span font='12'>🎧</span> "
 [[block]]
 block = "weather"
 format = "$icon $weather $temp C   $humidity ($location)"
+error_format = ""
 service = { name = "openweathermap", api_key = "0b440372cffdd59274b4e0e2594c2f86", city_id = "3855104", units = "metric", lang = "sp" }
 autolocate = true
 autolocate_interval = "once"
@@ -32,6 +33,7 @@ autolocate_interval = "once"
 block = "pacman"
 interval = 600
 format = "$icon $both.eng"
+error_format = ""
 format_singular = "$icon $both.eng"
 aur_command = "yay -Qua"
 format_up_to_date = "$icon Updated"
@@ -44,6 +46,7 @@ icons_format = " <span font='20'>󱧘</span> "
 [[block]]
 block = "battery"
 format = " $icon $percentage "
+full_format = " $icon "
 if_command = "test -e /sys/class/power_supply/BAT0"
 
 [[block]]
