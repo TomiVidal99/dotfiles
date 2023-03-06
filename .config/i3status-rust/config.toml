@@ -58,13 +58,13 @@ idle_fg = "#011318"
 [[block]]
 block = "time"
 interval = 5
-format = "$icon $timestamp.datetime(f:'%R', l:es_AR)"
+format = "$icon $timestamp.datetime(f:'%R', l:es_AR) "
 
 [[block]]
 block = "time"
 interval = 5
 #timezone = "America/Buenos_Aires"
-format = "$icon $timestamp.datetime(f:'%A %d/%m', l:es_AR)"
+format = "$icon $timestamp.datetime(f:'%A %d/%m', l:es_AR) "
 [block.theme_overrides]
 idle_bg = "#a9a9a9"
 idle_fg = "#011318"
