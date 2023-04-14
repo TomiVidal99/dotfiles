@@ -1,4 +1,4 @@
-icons_format = " <span font='18'>{icon}</span> "
+icons_format = " <span font='14'>{icon}</span> "
 
 [theme]
 theme = "solarized-dark"
@@ -68,7 +68,7 @@ idle_fg = "#011318"
 block = "time"
 interval = 5
 format = "$icon $timestamp.datetime(f:'%R', l:es_AR) "
-icons_format = " <span font='18'></span> "
+icons_format = " <span font='14'></span> "
 [[block]]
 block = "time"
 interval = 5
