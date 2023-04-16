@@ -21,3 +21,5 @@ require "tomii.utils.latex"
 require "tomii.utils.gitsigns"
 require "tomii.utils.lspsaga"
 require "tomii.utils.winbar"
+
+vim.cmd[[ resize +10000 ]]
