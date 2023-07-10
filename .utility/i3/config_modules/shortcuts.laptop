@@ -1,6 +1,7 @@
 # Custom shortcuts to most used apps
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+x exec dolphin
+bindsym $mod+Shift+s exec spotify
 
 # Sound and Mediaplayer
 bindsym $mod+$alt+k exec --no-startup-id sh ~/.utility/i3/update_volume.sh "UP"
@@ -17,7 +18,6 @@ bindsym $mod+a mode "$apps_mode"
 mode "$apps_mode" {
     bindsym t exec thunderbird
     bindsym l exec $(wine .wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe)
-    bindsym s exec spotify
 
     bindsym q mode "default"
     bindsym Escape mode "default"
