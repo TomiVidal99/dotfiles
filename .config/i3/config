@@ -320,7 +320,7 @@ client.urgent           #011318   #002b36     #002b36   #a9a9a9
 
 # - - - - - - - - - - bar (laptop) - - - - - - - - - - 
 bar {
-    font pango: NotoMono Nerd Font Mono 13
+    font pango: NotoSerif Nerd Font 13, NotoMono Nerd Font Mono 13
     position top
     status_command /usr/bin/i3status-rs /home/tomii/.dotfiles/.config/i3status-rust/config.toml
     colors {
