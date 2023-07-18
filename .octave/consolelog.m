@@ -19,6 +19,8 @@ function consolelog(msj, logType = 'info')
       defaultColor = 'yellow';
     case 'error'
       defaultColor = 'red';
+    case 'test'
+      defaultColor = 'cyan';
     otherwise
       dispc(cstrcat("ERROR: logType = '", logType, "', no está disponible, intente con: 'info', 'warning', 'error'\n"), 'red');
   end
