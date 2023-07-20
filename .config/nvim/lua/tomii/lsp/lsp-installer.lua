@@ -105,7 +105,7 @@ local custom_lsps = {
 	"rust_hdl",
 	"bash_language_server",
 	"hdl_checker",
-	--"mlang",
+	"mlang",
 }
 for _, lsp in pairs(custom_lsps) do
 	lspconfig[lsp].setup(lsps_opts)
