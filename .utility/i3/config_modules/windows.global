@@ -85,6 +85,9 @@ assign [class="discord"] $ws8
 # to workspace 9
 assign [class="thunderbird"] $ws9
 assign [class="mail"] $ws9
+# to workspace 10
+assign [class="steam"] $ws10
+assign [class="transmission"] $ws10
 # to workspace 11
 assign [class="quartus.exe"] $ws11
 assign [class="xviix65.exe"] $ws11
