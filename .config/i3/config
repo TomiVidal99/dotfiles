@@ -6,7 +6,8 @@ set $secondary_monitor HDMI-A-1
 set $mod Mod4 
 set $alt Mod1
 # Remove borders
-default_border none
+default_border pixel 1
+smart_borders on
 # Turn off focus follows mouse
 focus_follows_mouse no
 # - - - - - - - - - - - - - - - - - - - - 
@@ -99,6 +100,8 @@ assign [class="discord"] $ws8
 # to workspace 9
 assign [class="thunderbird"] $ws9
 assign [class="mail"] $ws9
+# to workspace 10
+assign [class="steam"] $ws10
 # to workspace 11
 assign [class="quartus.exe"] $ws11
 assign [class="xviix65.exe"] $ws11
@@ -292,7 +295,7 @@ exec_always --no-startup-id "~/.utility/i3/tray.sh"
 # - - - - - - - - - - theme (global) - - - - - - - - - - 
 # FONT
 #font pango:DejaVu Sans Mono 8
-font pango:Noto Mono 16 
+font pango:Hack Mono 12
 
 # TODO: make this better
 # Window decorations colors

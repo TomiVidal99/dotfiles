@@ -5,6 +5,7 @@ set $secondary_monitor HDMI-A-1
 set $mod Mod4 
 set $alt Mod1
 # Remove borders
-default_border none
+default_border pixel 1
+smart_borders on
 # Turn off focus follows mouse
 focus_follows_mouse no

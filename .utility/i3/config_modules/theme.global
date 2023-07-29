@@ -1,6 +1,6 @@
 # FONT
 #font pango:DejaVu Sans Mono 8
-font pango:Noto Mono 16 
+font pango:Hack Mono 12
 
 # TODO: make this better
 # Window decorations colors
