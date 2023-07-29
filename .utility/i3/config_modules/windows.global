@@ -88,6 +88,7 @@ assign [class="mail"] $ws9
 # to workspace 10
 assign [class="steam"] $ws10
 assign [class="transmission"] $ws10
+assign [class="systemsettings"] $ws10
 # to workspace 11
 assign [class="quartus.exe"] $ws11
 assign [class="xviix65.exe"] $ws11
