@@ -82,6 +82,7 @@ for_window [class="Clementine"] move container to workspace number $ws5
 # to workspace 7
 # to workspace 8
 assign [class="discord"] $ws8
+assign [class="whatsie"] $ws8
 # to workspace 9
 assign [class="thunderbird"] $ws9
 assign [class="mail"] $ws9
