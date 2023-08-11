@@ -2,6 +2,7 @@ bar {
     font pango: NotoSerif Nerd Font 13, NotoMono Nerd Font Mono 13
     position top
     status_command /usr/bin/i3status-rs /home/tomii/.dotfiles/.config/i3status-rust/config.toml
+    tray_output primary
     colors {
       background #011318
       statusline #eeeeee

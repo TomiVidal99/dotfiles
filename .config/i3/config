@@ -97,11 +97,14 @@ for_window [class="Clementine"] move container to workspace number $ws5
 # to workspace 7
 # to workspace 8
 assign [class="discord"] $ws8
+assign [class="whatsie"] $ws8
 # to workspace 9
 assign [class="thunderbird"] $ws9
 assign [class="mail"] $ws9
 # to workspace 10
 assign [class="steam"] $ws10
+assign [class="transmission"] $ws10
+assign [class="systemsettings"] $ws10
 # to workspace 11
 assign [class="quartus.exe"] $ws11
 assign [class="xviix65.exe"] $ws11
@@ -326,6 +329,7 @@ bar {
     font pango: NotoSerif Nerd Font 13, NotoMono Nerd Font Mono 13
     position top
     status_command /usr/bin/i3status-rs /home/tomii/.dotfiles/.config/i3status-rust/config.toml
+    tray_output primary
     colors {
       background #011318
       statusline #eeeeee
@@ -344,6 +348,7 @@ bar {
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+x exec dolphin
 bindsym $mod+Shift+s exec spotify
+bindsym $mod+Shift+w exec whatsie
 
 # Sound and Mediaplayer
 bindsym $mod+$alt+k exec --no-startup-id sh ~/.utility/i3/update_volume.sh "UP"
