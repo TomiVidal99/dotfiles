@@ -2,6 +2,7 @@
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+x exec dolphin
 bindsym $mod+Shift+s exec spotify
+bindsym $mod+Shift+w exec whatsie
 
 # Sound and Mediaplayer
 bindsym $mod+$alt+k exec --no-startup-id sh ~/.utility/i3/update_volume.sh "UP"
