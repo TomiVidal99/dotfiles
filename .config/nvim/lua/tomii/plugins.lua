@@ -45,7 +45,7 @@ lazynvim.setup({
 		"svrana/neosolarized.nvim", -- actual theme
 		dependencies = { "tjdevries/colorbuddy.nvim" },
 	},
-	"lukas-reineke/indent-blankline.nvim", -- identation lines
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- identation lines
 	"nvim-lualine/lualine.nvim", -- status line down below
 	"fgheng/winbar.nvim", -- winbar
 	{
@@ -209,12 +209,10 @@ lazynvim.setup({
 
 	-- Navigation
 	{
-		-- general navigation
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
-		config = function()
-			require("telescope").setup({ defaults = { file_ignore_patterns = { "node_modules", ".git" } } })
-		end,
+		tag = "0.1.5",
+		-- or                              , branch = '0.1.x',
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	"preservim/nerdtree", -- file explorer
 	{ "Xuyuanp/nerdtree-git-plugin", dependencies = { "preservim/nerdtree" } }, -- displays git status on nerdtre
