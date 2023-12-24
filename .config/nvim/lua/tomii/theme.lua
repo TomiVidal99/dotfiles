@@ -15,21 +15,6 @@ if not cb_ok then
 	return
 end
 
--- Indentations
-vim.opt.list = true
-vim.opt.listchars:append("eol:↴")
-local indent_blankline_ok, indent_blankline = pcall(require, "ibl")
-if not indent_blankline_ok then
-	print("ERROR: indent_blankline not found. Called from theme.lua")
-	return
-end
-indent_blankline.setup()
--- show_end_of_line = true,
--- space_char_blankline = " ",
--- show_current_context = true,
--- show_current_context_start = true,
--- enable identation lines
-
 n.setup({
 	comment_italics = true,
 })
