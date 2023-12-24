@@ -34,6 +34,12 @@ local function run_current_script_bottom()
 end
 local add_commit_current_file = custom_scripts.add_commit_current_file
 
+-- Opens the LspLog file in a new tab
+local function open_lps_log()
+	local command = "python '/home/tomii/.utility/parseLspLogOutput.py'"
+	custom_scripts.run_command(command)
+end
+
 -- Helper function to set a normal keymap.
 local kmn = function(key, func)
 	km("n", key, func, opts)
@@ -63,6 +69,7 @@ kmn("<localleader>ff", run_current_script_tab) -- compiles in a bottom terminal
 kmn("<localleader>fr", run_current_script_right) -- compiles in a bottom terminal
 kmn("<localleader>fb", run_current_script_bottom) -- compiles in a bottom terminal
 kmn("<leader>ga", add_commit_current_file) -- git add and git commit -m for the current file
+kmn("<localleader>lo", open_lps_log) -- open lsp log in a new tab
 
 -- Lspsaga
 kmn("<leader>ca", "<CMD>Lspsaga code_action<CR>")
@@ -84,9 +91,12 @@ kmn("<localleader>li", "<CMD>VimtexInfo<CR>")
 kmn("<C-b>", "<CMD>NERDTreeToggle | NERDTreeMirror<CR>")
 kmn("<A-b>", "<CMD>NERDTreeFind<CR>")
 
----------- TELESCOPE ----------
 -- Format code with LSP
 kmn("<leader>F", "<CMD>lua vim.lsp.buf.format()<CR>")
+
+---------- TELESCOPE ----------
+-- See all buffers
+kmn("<leader>B", "<CMD>Telescope buffers<CR>")
 
 -- All type of search: files, keywords, maps, etc.
 kmn("gr", "<CMD>Telescope lsp_references<CR>")
@@ -96,6 +106,7 @@ kmn("<leader><leader>", "<CMD>Telescope find_files<CR>")
 kmn("<leader>G", "<CMD>Telescope live_grep<CR>")
 kmn("<leader>mm", "<CMD>Telescope marks<CR>")
 kmn("<leader>jj", "<CMD>Telescope marks<CR>")
+kmn("<leader>gg", "<CMD>Git<CR>")
 kmn("<leader>gC", "<CMD>Telescope git_commits<CR>")
 kmn("<leader>gc", "<CMD>Telescope git_bcommits<CR>")
 kmn("<leader>gb", "<CMD>Telescope git_branches<CR>")

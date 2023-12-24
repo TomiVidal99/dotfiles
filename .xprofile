@@ -15,3 +15,6 @@ export PATH=$PATH:$GEM_PATH:$PYTHON_BIN_PATH
 
 # Export the reset i3 config script to be executed from rofi
 export PATH=$PATH:$HOME/.dotfiles/.utility/i3
+
+export BUN_INSTALL="$HOME/.bun" 
+export PATH=$BUN_INSTALL/bin:$PATH 

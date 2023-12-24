@@ -2,7 +2,7 @@ local lsp_installer = require("nvim-lsp-installer")
 local lspconfig = require("lspconfig")
 
 -- auto format on save
-vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
+--vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
 
 -- Register a handler that will be called for all installed servers.
 lsp_installer.setup({
@@ -29,41 +29,8 @@ local lsp_list = {
 			on_attach = on_attach,
 			capabilities = capabilities,
 			cmd = {
-			  "clangd",
-				"--background-index",
-				"--suggest-missing-includes",
-				'--query-driver="/usr/local/opt/gcc-arm-none-eabi-8-2019-q3-update/bin/arm-none-eabi-gcc"',
-        "-I/usr/include/gtk-4.0",
-        "-I/usr/include/pango-1.0",
-        "-I/usr/include/glib-2.0",
-        "-I/usr/lib/glib-2.0/include",
-        "-I/usr/include/sysprof-4",
-        "-I/usr/include/harfbuzz",
-        "-I/usr/include/freetype2",
-        "-I/usr/include/libpng16",
-        "-I/usr/include/libmount",
-        "-I/usr/include/blkid",
-        "-I/usr/include/fribidi",
-        "-I/usr/include/cairo",
-        "-I/usr/include/pixman-1",
-        "-I/usr/include/gdk-pixbuf-2.0",
-        "-I/usr/include/graphene-1.0",
-        "-I/usr/lib/graphene-1.0/include",
-        "-mfpmath=sse",
-        "-msse",
-        "-msse2",
-        "-pthread",
-        "-lgtk-4",
-        "-lpangocairo-1.0",
-        "-lpango-1.0",
-        "-lharfbuzz",
-        "-lgdk_pixbuf-2.0",
-        "-lcairo-gobject",
-        "-lcairo",
-        "-lgraphene-1.0",
-        "-lgio-2.0",
-        "-lgobject-2.0",
-        "-lglib-2.0",
+				"clangd",
+				"--offset-encoding=utf-16",
 			},
 		},
 	},
@@ -82,6 +49,28 @@ local lsp_list = {
 			settings = require("tomii.lsp.settings.lua_ls"),
 		},
 	},
+	eslint = {
+		name = "eslint",
+		opts = {
+			bin = "eslint_d",
+			code_actions = {
+				enable = true,
+				apply_on_save = {
+					enable = true,
+					types = { "directive", "problem", "suggestion", "layout" },
+				},
+				disable_rule_comment = {
+					enable = true,
+					location = "separate_line", -- or `same_line`
+				},
+			},
+			diagnostics = {
+				enable = true,
+				report_unused_disable_directives = false,
+				run_on = "type", -- or `save`
+			},
+		},
+	},
 }
 
 for _, data in pairs(lsp_list) do
@@ -91,14 +80,6 @@ for _, data in pairs(lsp_list) do
 		lspconfig[data["name"]].setup(data["opts"])
 	end
 end
-
--- TODO: think how to change the lsp_list to accept custom settings
--- LUA
--- lspconfig.lua_ls.setup({
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- 	settings = require("tomii.lsp.settings.lua_ls"),
--- })
 
 -- Custom LSPs
 local custom_lsps = {
@@ -120,6 +101,38 @@ require("mason-lspconfig").setup_handlers({
 			lspconfig[server_name].setup(lsp_data["opts"])
 		else
 			lspconfig[server_name].setup(lsps_opts)
+		end
+	end,
+})
+
+---------------------------------
+-- Formatting
+---------------------------------
+local diagnostics = require("null-ls").builtins.diagnostics
+local formatting = require("null-ls").builtins.formatting
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+require("null-ls").setup({
+	debug = true,
+	sources = {
+		formatting.black,
+		formatting.rustfmt,
+		formatting.phpcsfixer,
+		formatting.prettier,
+		formatting.stylua,
+		formatting.phpcbf,
+		diagnostics.shellcheck.with({ diagnostics_format = "#{m} [#{c}]" }),
+	},
+	on_attach = function(client, bufnr)
+		if client.supports_method("textDocument/formatting") then
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					vim.lsp.buf.format({ bufnr = bufnr })
+				end,
+			})
 		end
 	end,
 })
