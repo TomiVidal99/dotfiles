@@ -15,6 +15,7 @@ require("tomii.statusline")
 require("tomii.keymaps")
 require("tomii.fidget")
 require("tomii.identation")
+require("tomii.harpoon")
 
 -- utils (plugins that require minor setup and make your life easier)
 require("tomii.utils.color-display")
