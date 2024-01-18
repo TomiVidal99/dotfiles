@@ -43,3 +43,9 @@ alias acd='add_common_directory'
 
 # Octave
 alias o='octave --traditional'
+
+# Okular
+alias okular='"/mnt/c/Program Files/Okular/bin/okular.exe"'
+
+# find
+alias fd=fdfind
