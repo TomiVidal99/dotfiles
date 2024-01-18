@@ -9,7 +9,7 @@ export EDITOR="nvim"
 export TERMINAL="konsole"
 export BROWSER="firefox"
 
-GEM_PATH=/home/tomii/.local/share/gem/ruby/3.0.0/bin
+GEM_PATH=/usr/bin/gem
 PYTHON_BIN_PATH=/home/tomii/.local/bin
 export PATH=$PATH:$GEM_PATH:$PYTHON_BIN_PATH
 

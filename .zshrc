@@ -9,11 +9,13 @@
 #   - custom keybinds
 #   - 'cd' to custom paths from function
 #   - completion TODO (need to complete add arguments yet)
+#   - auto installation of Powerlevel10k TODO
 
 # save commands used.
 HISTFILE=~/.cache/zsh_history
 
 source .xprofile
+source "$ZDOTDIR/nvm"
 
 # Load the other files, some options need to be executed before some plugins.
 source "$ZDOTDIR/functions"
