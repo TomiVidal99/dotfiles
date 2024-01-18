@@ -69,13 +69,13 @@ function add_to_working_directory() {
   fi
   DIR=$(pwd)
   FULLPATH="${DIR_NAME}=${DIR}"
-  echo $FULLPATH >> /home/tomii/.dotfiles/.config/zsh/working_directories
+  echo $FULLPATH >> ~/.dotfiles/.config/zsh/working_directories
 }
 
 # remove current directory from the working directory list
 function remove_from_working_directory() {
   zle -I
-  DIRECTORIES=$(cat /home/tomii/.dotfiles/.config/zsh/working_directories)
+  DIRECTORIES=$(cat ~/.dotfiles/.config/zsh/working_directories)
   if [ -z $DIRECTORIES ]; then
     # exit if the are no working directories
     clear
@@ -92,7 +92,7 @@ function remove_from_working_directory() {
           [Nn]*) echo "Aborted" ; return  1;;
       esac
   done
-  sed -i $PATTERN_TO_REMOVE /home/tomii/.dotfiles/.config/zsh/working_directories
+  sed -i $PATTERN_TO_REMOVE ~/.dotfiles/.config/zsh/working_directories
 }
 
 # git add all, commit with a given argument and push changes
