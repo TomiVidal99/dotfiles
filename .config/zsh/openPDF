@@ -6,5 +6,5 @@ function openPDF() {
   cd $PDFSPath
   selectedPDF=$(fd -e pdf | fzf)
   echo "Abriendo $selectedPDF..."
-  okular "$selectedPDF"
+  okular "$selectedPDF" & disown
 }
