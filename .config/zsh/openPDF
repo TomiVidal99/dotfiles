@@ -2,9 +2,13 @@
 
 # This opens a pdf from the 'facultad' path with okular
 function openPDF() {
-  PDFSPath="/mnt/c/Users/tomiv/My Documents/facultad"
+  PDFSPath="/mnt/c/Users/tomiv/My Documents"
   cd $PDFSPath
   selectedPDF=$(fd -e pdf | fzf)
-  echo "Abriendo $selectedPDF..."
-  okular "$selectedPDF" & disown
+  if [[ -n "$selectedPDF" ]]; then
+    echo "Abriendo $selectedPDF..."
+    okular "$selectedPDF" & disown
+  else
+    echo "Cancelado"
+  fi
 }
