@@ -46,3 +46,7 @@ bindkey -M vicmd '^r' fzf_cmd_history_
 # Switch between working directories.
 function switch_working_directory_() {zle -I; switch_working_directory}; zle -N switch_working_directory_
 bindkey -M vicmd '^w' switch_working_directory_
+
+# Open pdfs facultad
+function openPDFFacultad_() {zle -I; openPDF}; zle -N openPDFFacultad_
+bindkey -M vicmd '^o' openPDFFacultad_

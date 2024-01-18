@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# This opens a pdf from the 'facultad' path with okular
+function openPDF() {
+  PDFSPath="/mnt/c/Users/tomiv/My Documents/facultad"
+  cd $PDFSPath
+  selectedPDF=$(fd -e pdf | fzf)
+  echo "Abriendo $selectedPDF..."
+  okular "$selectedPDF"
+}
