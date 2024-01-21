@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Linux
-alias update='yay -Syyu --noconfirm'
-alias search='yay -Ss'
-alias install='yay -Sy'
-alias remove='yay -R'
+alias update='sudo apt update'
+alias search='sudo apt search'
+alias install='sudo apt install'
+alias remove='sudo apt remove'
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
