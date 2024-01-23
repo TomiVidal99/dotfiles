@@ -3,12 +3,21 @@
 # This opens a pdf from the 'facultad' path with okular
 function openPDF() {
   PDFSPath="/mnt/c/Users/tomiv/My Documents"
+  SAVED_QUERIES="$HOME/.cache/openPDF_savedQueries.txt"
+  defaultQuery=$(cat "$SAVED_QUERIES")
+  currentDir=$(pwd)
   cd $PDFSPath
-  selectedPDF=$(fd -e pdf | fzf)
+  query=$(fd -e pdf | fzf --query="$defaultQuery" --print-query)
+  queryLines=$(wc -l "$query")
+  selectedPDF=$(echo $query | tail -n 1)
+  answer=$(echo $query | head -n 1)
+  echo "$answer" > "$SAVED_QUERIES"
+  clear
   if [[ -n "$selectedPDF" ]]; then
-    echo "Abriendo $selectedPDF..."
+    echo "Abriendo '$selectedPDF'..."
     okular "$selectedPDF" & disown
   else
     echo "Cancelado"
   fi
+  cd "$currentDir"
 }
