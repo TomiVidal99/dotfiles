@@ -126,3 +126,7 @@ function add_common_directory() {
   FULLPATH="${DIR_NAME}=${DIR}"
   echo $FULLPATH >> $DIRECTORIES_FILE
 }
+
+function getDocs() {
+  sh ~/.dotfiles/.utility/common/get_documents.sh
+}

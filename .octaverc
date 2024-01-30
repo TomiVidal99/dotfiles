@@ -16,3 +16,11 @@ function q()
   close all;
   exit;
 endfunction
+
+set(0, "defaulttextfontsize", 24)  % title
+set(0, "defaultaxesfontsize", 18)  % axes labels
+
+# set(0, "defaultaxesfontname", "Courier")
+# set(0, "defaulttextfontname", "Courier")
+
+set(0, "defaultlinelinewidth", 2)

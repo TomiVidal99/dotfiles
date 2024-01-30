@@ -50,3 +50,7 @@ bindkey -M vicmd '^w' switch_working_directory_
 # Open pdfs facultad
 function openPDFFacultad_() {zle -I; openPDF}; zle -N openPDFFacultad_
 bindkey -M vicmd '^o' openPDFFacultad_
+
+# Open pdfs facultad rofi
+function openPDFFacultadRofi_() {zle -I; getDocs}; zle -N openPDFFacultadRofi_
+bindkey -M vicmd '^r' openPDFFacultadRofi_
