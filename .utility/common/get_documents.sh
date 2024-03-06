@@ -30,8 +30,6 @@ get_path_from_selected_option() {
 }
 
 DOCUMENTS=$(cat $DIRECTORIES | xargs -I '{}' fdfind -e pdf . "{}")
-okular "/mnt/c/Users/tomiv/My Documents/facultad/Circuitos y Sistemas Lineales/PARCIALES MOD 1/comprobante-1.pdf"
-exit
 SELECTED_DOCUMENT_NAME=$(echo "$DOCUMENTS" | parse_options | rofi_command)
 SELECTED_DOCUMENT_PATH=$(echo "$SELECTED_DOCUMENT_NAME" | get_path_from_selected_option)
 
@@ -43,4 +41,4 @@ if [[ "$SELECTED_DOCUMENT_NAME" = "" || "$SELECTED_DOCUMENT_PATH" = "" ]]; then
 fi
 
 echo "selected document: '$SELECTED_DOCUMENT_PATH'"
-okular """$SELECTED_DOCUMENT_PATH"""
+okular """$SELECTED_DOCUMENT_PATH""" && disown
